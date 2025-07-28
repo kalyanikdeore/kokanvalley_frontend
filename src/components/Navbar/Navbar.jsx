@@ -31,11 +31,16 @@ const Navbar = () => {
 
   const navLinks = [
     { name: "Home", icon: <FaHome />, path: "/" },
-    { name: "About", icon: <FaInfoCircle />, path: "/about" },
+    { name: "About", icon: <FaInfoCircle />, path: "/about-us" },
     { name: "Gallery", icon: <FaImages />, path: "/gallery" },
     { name: "Flora", icon: <FaTree />, path: "/flora" },
     { name: "Contact", icon: <FaPhone />, path: "/contact" },
-    { name: "Location", icon: <FaMapMarkerAlt />, path: "/location" },
+    // { name: "Location", icon: <FaMapMarkerAlt />, path: "/location" },
+    {
+      name: "Location",
+      icon: <FaMapMarkerAlt />,
+      path: "https://www.google.com/maps/dir/20.0099404,73.7595528/17.2472524,73.5088761", // example path to Kokan
+    },
   ];
 
   const containerVariants = {
