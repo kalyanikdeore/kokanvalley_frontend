@@ -16,9 +16,15 @@ import {
   Users,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-// import { leelaLogo } from "../assets";
+// Import React Icons
+import { 
+  FaFacebookF, 
+  FaInstagram, 
+  FaWhatsapp, 
+  FaTwitter, 
+  FaYoutube 
+} from "react-icons/fa";
 import { logo } from "../../assets";
-
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -38,11 +44,6 @@ const Navbar = () => {
       path: "/gallery",
       icon: <Map className="h-4 w-4 mr-2" />,
     },
-    // {
-    //   label: "Blog",
-    //   path: "/blog",
-    //   icon: <MessageSquare className="h-4 w-4 mr-2" />,
-    // },
     {
       label: "Contact",
       path: "/contact",
@@ -67,7 +68,7 @@ const Navbar = () => {
     <header className="fixed w-full z-50">
       {/* Top Contact Bar */}
       <div
-        className={`bg-gradient-to-r from-amber-600 to-amber-700 text-white text-sm transition-all duration-300 ${
+        className={`bg-gradient-to-r from-green-600 to-green-700 text-white text-sm transition-all duration-300 ${
           scrolled ? "h-0 overflow-hidden" : "h-10"
         }`}
       >
@@ -75,32 +76,45 @@ const Navbar = () => {
           <div className="flex flex-col md:flex-row justify-center items-center space-x-4">
             <a
               href="mailto:info@leelafarmhouse.com"
-              className="flex items-center hover:text-amber-200 transition-colors"
+              className="flex items-center hover:text-green-200 transition-colors"
             >
               <Mail className="h-4 w-4 mr-1" />
               info@leelafarmhouse.com
             </a>
             <a
               href="tel:+918261079943"
-              className="flex items-center hover:text-amber-200 transition-colors"
+              className="flex items-center hover:text-green-200 transition-colors"
             >
               <Phone className="h-4 w-4 mr-1" />
               +91 8261079943
             </a>
           </div>
           <div className="hidden md:flex items-center space-x-4">
-            <Clock className="h-4 w-4 mr-1" />
-            <span>Open 24/7</span>
             {/* Social Media Icons */}
-            <div className="flex space-x-2 ml-4">
-              <a href="#" className="hover:text-amber-200">
-                <i className="fab fa-facebook-f"></i>
+            <div className="flex space-x-4 ml-4">
+              <a 
+                href="https://facebook.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="hover:text-green-200"
+              >
+                <FaFacebookF className="w-4 h-4" />
               </a>
-              <a href="#" className="hover:text-amber-200">
-                <i className="fab fa-instagram"></i>
+              <a 
+                href="https://instagram.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="hover:text-green-200"
+              >
+                <FaInstagram className="w-4 h-4" />
               </a>
-              <a href="#" className="hover:text-amber-200">
-                <i className="fab fa-whatsapp"></i>
+              <a 
+                href="https://wa.me/918261079943" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="hover:text-green-200"
+              >
+                <FaWhatsapp className="w-4 h-4" />
               </a>
             </div>
           </div>
@@ -113,13 +127,13 @@ const Navbar = () => {
           scrolled ? "py-2" : "py-4"
         }`}
       >
-        <div className="container mx-auto px-4 flex justify-between items-center">
+        <div className="container mx-auto px-4 flex justify-around items-center">
           <div className="flex items-center">
-            <a href="/" className="text-2xl font-bold text-amber-700 ">
+            <a href="/" className="text-2xl font-bold text-green-700 ">
               <img
                 src={logo}
                 alt="Leela Farmhouse"
-                className="h-30 w-60"
+                className="h-27 w-27"
               />
             </a>
           </div>
@@ -132,7 +146,7 @@ const Navbar = () => {
                   <>
                     <button
                       onClick={() => toggleDropdown(item.label)}
-                      className="flex items-center text-gray-800 hover:text-amber-600 transition-colors"
+                      className="flex items-center text-gray-800 hover:text-green-600 transition-colors"
                     >
                       {item.icon}
                       {item.label}
@@ -149,7 +163,7 @@ const Navbar = () => {
                           initial={{ opacity: 0, y: 10 }}
                           animate={{ opacity: 1, y: 0 }}
                           exit={{ opacity: 0, y: 10 }}
-                          className="absolute left-0 mt-2 w-56 bg-white rounded-md shadow-lg z-50 border border-amber-100"
+                          className="absolute left-0 mt-2 w-56 bg-white rounded-md shadow-lg z-50 border border-green-100"
                         >
                           <div className="py-1">
                             {item.subItems.map((subItem) => (
@@ -158,7 +172,7 @@ const Navbar = () => {
                                 href={`#${subItem
                                   .toLowerCase()
                                   .replace(/\s+/g, "-")}`}
-                                className="block px-4 py-2 text-gray-800 hover:bg-amber-50 hover:text-amber-600 transition-colors"
+                                className="block px-4 py-2 text-gray-800 hover:bg-green-50 hover:text-green-600 transition-colors"
                                 onClick={() => setOpenDropdown(null)}
                               >
                                 {subItem}
@@ -172,7 +186,7 @@ const Navbar = () => {
                 ) : (
                   <a
                     href={item.path}
-                    className="flex items-center text-gray-800 hover:text-amber-600 transition-colors"
+                    className="flex items-center text-gray-800 hover:text-green-600 transition-colors"
                   >
                     {item.icon}
                     {item.label}
@@ -183,7 +197,7 @@ const Navbar = () => {
             {/* Call Now Button */}
             <a
               href="tel:+918261079943"
-              className="ml-4 bg-amber-600 hover:bg-amber-700 text-white px-4 py-2 rounded-lg flex items-center transition-colors"
+              className="ml-4 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg flex items-center transition-colors"
             >
               <Phone className="h-4 w-4 mr-2" />
               Call Now
@@ -220,7 +234,7 @@ const Navbar = () => {
                   />
                   <a
                     href="/home"
-                    className="text-xl font-bold text-amber-600 ml-2"
+                    className="text-xl font-bold text-green-600 ml-2"
                   >
                     Leela Farmhouse
                   </a>
@@ -266,7 +280,7 @@ const Navbar = () => {
                                   href={`#${subItem
                                     .toLowerCase()
                                     .replace(/\s+/g, "-")}`}
-                                  className="block py-2 text-gray-600 hover:text-amber-600 transition-colors"
+                                  className="block py-2 text-gray-600 hover:text-green-600 transition-colors"
                                   onClick={toggleMenu}
                                 >
                                   {subItem}
@@ -279,7 +293,7 @@ const Navbar = () => {
                     ) : (
                       <a
                         href={item.path}
-                        className="flex items-center py-3 text-gray-800 hover:text-amber-600 transition-colors"
+                        className="flex items-center py-3 text-gray-800 hover:text-green-600 transition-colors"
                         onClick={toggleMenu}
                       >
                         {item.icon}
@@ -293,7 +307,7 @@ const Navbar = () => {
               <div className="mt-6">
                 <a
                   href="tel:+918261079943"
-                  className="w-full bg-amber-600 hover:bg-amber-700 text-white px-4 py-3 rounded-lg flex items-center justify-center transition-colors mb-4"
+                  className="w-full bg-green-600 hover:bg-green-700 text-white px-4 py-3 rounded-lg flex items-center justify-center transition-colors mb-4"
                 >
                   <Phone className="h-5 w-5 mr-2" />
                   Call Now
@@ -302,45 +316,65 @@ const Navbar = () => {
                   href="https://wa.me/918261079943"
                   className="w-full bg-green-600 hover:bg-green-700 text-white px-4 py-3 rounded-lg flex items-center justify-center transition-colors"
                 >
-                  <i className="fab fa-whatsapp h-5 w-5 mr-2"></i>
+                  <FaWhatsapp className="h-5 w-5 mr-2" />
                   WhatsApp Us
                 </a>
               </div>
 
-              <div className="mt-8 p-4 bg-amber-50 rounded-lg">
+              <div className="mt-8 p-4 bg-green-50 rounded-lg">
                 <h3 className="font-semibold text-gray-900 mb-3">Contact Us</h3>
                 <a
                   href="mailto:info@leelafarmhouse.com"
                   className="flex items-center text-gray-700 mb-2"
                 >
-                  <Mail className="h-5 w-5 mr-2 text-amber-600" />
+                  <Mail className="h-5 w-5 mr-2 text-green-600" />
                   info@leelafarmhouse.com
                 </a>
                 <a
                   href="tel:+917972709407"
                   className="flex items-center text-gray-700 mb-2"
                 >
-                  <Phone className="h-5 w-5 mr-2 text-amber-600" />
+                  <Phone className="h-5 w-5 mr-2 text-green-600" />
                   +918261079943
                 </a>
                 <div className="flex items-start text-gray-700">
-                  <MapPin className="h-5 w-5 mr-2 text-amber-600 mt-1" />
+                  <MapPin className="h-5 w-5 mr-2 text-green-600 mt-1" />
                   <span>Near Pune, Maharashtra</span>
                 </div>
 
                 {/* Social Media Links */}
                 <div className="flex space-x-4 mt-4">
-                  <a href="#" className="text-amber-600 hover:text-amber-700">
-                    <i className="fab fa-facebook-f text-xl"></i>
+                  <a 
+                    href="https://facebook.com" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-green-600 hover:text-green-700"
+                  >
+                    <FaFacebookF className="w-5 h-5" />
                   </a>
-                  <a href="#" className="text-amber-600 hover:text-amber-700">
-                    <i className="fab fa-instagram text-xl"></i>
+                  <a 
+                    href="https://instagram.com" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-green-600 hover:text-green-700"
+                  >
+                    <FaInstagram className="w-5 h-5" />
                   </a>
-                  <a href="#" className="text-amber-600 hover:text-amber-700">
-                    <i className="fab fa-twitter text-xl"></i>
+                  <a 
+                    href="https://twitter.com" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-green-600 hover:text-green-700"
+                  >
+                    <FaTwitter className="w-5 h-5" />
                   </a>
-                  <a href="#" className="text-amber-600 hover:text-amber-700">
-                    <i className="fab fa-youtube text-xl"></i>
+                  <a 
+                    href="https://youtube.com" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-green-600 hover:text-green-700"
+                  >
+                    <FaYoutube className="w-5 h-5" />
                   </a>
                 </div>
               </div>

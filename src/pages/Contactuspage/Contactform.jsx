@@ -41,7 +41,7 @@ const ContactPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-green-50 to-white pt-16">
+    <div className="min-h-screen bg-gradient-to-b from-green-50 py-66 to-white pt-16">
       {/* Main Content Section */}
       <div className="container mx-auto px-6 py-8">
         <motion.div

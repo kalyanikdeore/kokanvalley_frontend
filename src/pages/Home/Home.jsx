@@ -4,13 +4,15 @@ import CountSection from "./CountSection";
 import AboutSection from "./AboutSection";
 import ProjectsSection from "./ProjectsSection";
 import TestimonialsSection from "./TestimonialsSection";
+import Product from "./Product";
 
 function Home() {
   return (
     <div>
       <HeroSection />
-      <CountSection />
+      {/* <CountSection /> */}
       <AboutSection />
+      <Product />
       <ProjectsSection />
       <TestimonialsSection />
     </div>

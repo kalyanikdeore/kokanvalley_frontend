@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Banner1, Banner2, Banner3 } from "../../assets";
 
-const OutdoorGallery = () => {
+const Product = () => {
   const outdoorRef = useRef(null);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
@@ -85,14 +85,14 @@ const OutdoorGallery = () => {
           <div className="relative">
             <button
               onClick={() => scrollCarousel("left")}
-              className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-amber-600 hover:bg-amber-700 text-white p-3 rounded-full shadow-md hidden md:block transition-transform hover:scale-110"
+              className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-green-600 hover:bg-green-700 text-white p-3 rounded-full shadow-md hidden md:block transition-transform hover:scale-110"
               aria-label="Scroll left"
             >
               <ChevronLeft className="w-6 h-6" />
             </button>
             <button
               onClick={() => scrollCarousel("right")}
-              className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-amber-600 hover:bg-amber-700 text-white p-3 rounded-full shadow-md hidden md:block transition-transform hover:scale-110"
+              className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-green-600 hover:bg-green-700 text-white p-3 rounded-full shadow-md hidden md:block transition-transform hover:scale-110"
               aria-label="Scroll right"
             >
               <ChevronRight className="w-6 h-6" />
@@ -110,7 +110,7 @@ const OutdoorGallery = () => {
                   className="min-w-[300px] sm:min-w-[400px] flex-shrink-0"
                 >
                   <motion.div
-                    className="bg-white rounded-xl shadow-lg overflow-hidden border border-amber-100"
+                    className="bg-white rounded-xl shadow-lg overflow-hidden border border-green-100"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.4 }}
@@ -144,4 +144,4 @@ const OutdoorGallery = () => {
   );
 };
 
-export default OutdoorGallery;
+export default Product;

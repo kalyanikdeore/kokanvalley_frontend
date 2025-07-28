@@ -1,115 +1,134 @@
+import React from "react";
 import { motion } from "framer-motion";
-import { Banner1 } from "../../assets";
+import { Play } from "lucide-react";
+import { Banner1, Banner2, Banner3 } from "../../assets";
 
 const AboutSection = () => {
+  // Mock data instead of API call
+  const aboutData = {
+    image1_url: Banner1,
+    image2_url: Banner3,
+    story: "Leela Farmhouse was founded in 2010 with a vision to create a peaceful retreat in harmony with nature. What started as a small family project has grown into a beloved destination for travelers seeking authentic rural experiences while enjoying modern comforts.\n\nOur journey has been one of passion and dedication to sustainable tourism, preserving local traditions, and providing exceptional hospitality to all our guests.",
+    video_url: "https://youtube.com/our-story",
+    founder_image_url: Banner2,
+    founder_name: "Rajesh Sharma",
+    founder_position: "Founder & CEO",
+    overlap_image_alt: "Leela Farmhouse garden view"
+  };
+
   return (
-    <section className="py-16 bg-white">
-      <div className="container mx-auto px-4">
-        <div className="flex flex-col lg:flex-row items-center gap-12">
-          {/* Image Section */}
+    <section className="py-12 md:py-50  relative">
+      <div className="relative container mx-auto px-4 md:px-6">
+        {/* Mobile Top Image (hidden on desktop) */}
+        <motion.div
+          className="block lg:hidden w-full h-64 rounded-2xl overflow-hidden shadow-xl mb-8"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          <img
+            src={aboutData.image1_url}
+            alt="Leela Farmhouse exterior"
+            className="w-full h-full object-cover"
+          />
+        </motion.div>
+
+        <div className="relative flex flex-col lg:flex-row items-start justify-center gap-6 lg:gap-12">
+          {/* Desktop Image (hidden on mobile) */}
           <motion.div
+            className="hidden lg:block w-full lg:w-1/2"
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="w-full lg:w-1/2"
           >
-            <div className="relative rounded-xl overflow-hidden shadow-2xl">
+            <div className="z-10 w-full h-80 md:h-[700px] rounded-2xl overflow-hidden shadow-xl">
               <img
-                src={Banner1}
-                alt="About Green Plant Valley"
-                className="w-full h-auto object-cover"
+                src={aboutData.image1_url}
+                alt="Leela Farmhouse exterior"
+                className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-green-900 to-transparent opacity-30"></div>
             </div>
           </motion.div>
 
-          {/* Content Section */}
+          {/* Text Content */}
           <motion.div
+            className="w-full lg:w-1/2 px-2 sm:px-0"
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="w-full lg:w-1/2"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-green-800 mb-6">
-              About <span className="text-teal-600">Green Plant Valley</span>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-green-800 mb-4">
+              Our Story
             </h2>
-            <p className="text-lg text-gray-600 mb-6">
-              Founded in 2015, Green Plant Valley is dedicated to preserving the
-              natural beauty of the Kokan region through sustainable practices
-              and community engagement.
-            </p>
-            <div className="space-y-4">
-              <div className="flex items-start">
-                <div className="text-teal-500 mt-1 mr-4">
-                  <svg
-                    className="w-6 h-6"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
+            <div className="text-gray-700 mb-6 sm:mb-8 text-sm sm:text-base whitespace-pre-line">
+              {aboutData.story}
+            </div>
+
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
+              {/* Video CTA */}
+              {aboutData.video_url && (
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="inline-block"
+                >
+                  <a
+                    href={aboutData.video_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 sm:gap-3 bg-green-600 hover:bg-green-700 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg transition-colors shadow-md text-sm sm:text-base"
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M5 13l4 4L19 7"
-                    ></path>
-                  </svg>
+                    <div className="bg-white/20 p-1 sm:p-2 rounded-full">
+                      <Play className="w-4 h-4 sm:w-5 sm:h-5" />
+                    </div>
+                    <span className="font-medium">Watch our Story</span>
+                  </a>
+                </motion.div>
+              )}
+
+              {/* Signature */}
+              <div className="flex items-center gap-3 sm:gap-4">
+                {aboutData.founder_image_url && (
+                  <div className="h-10 w-10 sm:h-12 sm:w-12 rounded-full overflow-hidden border-2 border-amber-600">
+                    <img
+                      src={aboutData.founder_image_url}
+                      alt="Founder"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                )}
+                <div>
+                  <p className="font-medium text-gray-800 text-sm sm:text-base">
+                    {aboutData.founder_name}
+                  </p>
+                  <p className="text-xs sm:text-sm text-green-600">
+                    {aboutData.founder_position}
+                  </p>
                 </div>
-                <p className="text-gray-700">
-                  <span className="font-semibold">Eco-Tourism:</span> Promoting
-                  responsible travel to natural areas
-                </p>
-              </div>
-              <div className="flex items-start">
-                <div className="text-teal-500 mt-1 mr-4">
-                  <svg
-                    className="w-6 h-6"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M5 13l4 4L19 7"
-                    ></path>
-                  </svg>
-                </div>
-                <p className="text-gray-700">
-                  <span className="font-semibold">Conservation:</span>{" "}
-                  Protecting native flora and fauna
-                </p>
-              </div>
-              <div className="flex items-start">
-                <div className="text-teal-500 mt-1 mr-4">
-                  <svg
-                    className="w-6 h-6"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M5 13l4 4L19 7"
-                    ></path>
-                  </svg>
-                </div>
-                <p className="text-gray-700">
-                  <span className="font-semibold">Education:</span>{" "}
-                  Environmental awareness programs
-                </p>
               </div>
             </div>
-            <button className="mt-8 bg-teal-600 hover:bg-teal-700 text-white px-6 py-3 rounded-lg font-medium transition-colors">
-              Learn More About Us
-            </button>
           </motion.div>
         </div>
+
+        {/* Overlapping Image */}
+        {aboutData.image2_url && (
+          <motion.div
+            className="relative lg:absolute mx-auto lg:mx-0 mt-8 lg:mt-0 md:-bottom-40 lg:right-10 w-full lg:w-2/3 h-64 lg:h-96 rounded-2xl overflow-hidden shadow-xl"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <img
+              src={aboutData.image2_url}
+              alt={aboutData.overlap_image_alt}
+              className="w-full h-full object-cover"
+            />
+          </motion.div>
+        )}
       </div>
     </section>
   );
