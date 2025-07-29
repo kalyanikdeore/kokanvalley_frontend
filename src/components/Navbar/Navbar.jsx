@@ -36,12 +36,12 @@ const Navbar = () => {
     { label: "About", path: "/about-us", icon: <Info className="h-4 w-4 mr-2" /> },
     {
       label: "Product",
-      path: "/services",
+      path: "/product",
       icon: <BookOpen className="h-4 w-4 mr-2" />,
     },
     {
       label: "Project",
-      path: "/gallery",
+      path: "/project",
       icon: <Map className="h-4 w-4 mr-2" />,
     },
     {
@@ -124,7 +124,7 @@ const Navbar = () => {
       {/* Main Navbar */}
       <nav
         className={`bg-white shadow-md transition-all duration-300 ${
-          scrolled ? "py-2" : "py-4"
+          scrolled ? "py-1" : "py-1"
         }`}
       >
         <div className="container mx-auto px-4 flex justify-around items-center">
@@ -133,7 +133,7 @@ const Navbar = () => {
               <img
                 src={logo}
                 alt="Leela Farmhouse"
-                className="h-27 w-27"
+                className="h-30 w-40"
               />
             </a>
           </div>

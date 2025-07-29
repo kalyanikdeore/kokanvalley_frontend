@@ -4,6 +4,7 @@ import CountSection from "./CountSection";
 import AboutSection from "./AboutSection";
 import ProjectsSection from "./ProjectsSection";
 import TestimonialsSection from "./TestimonialsSection";
+import Product from "./Product";
 // import PopupForm from "../components/PopupForm"; 
 import PopupForm from "../../components/PopUp/PopupForm";
 function Home() {
@@ -23,7 +24,7 @@ function Home() {
       <HeroSection />
       {/* <CountSection /> */}
       <AboutSection />
-      {/* <Product /> */}
+      <Product />
       <ProjectsSection />
       <TestimonialsSection />
       {/* Popup Form */}
