@@ -45,17 +45,16 @@ const Footer = () => {
 
   const quickLinks = [
     { name: "Home", url: "/" },
-    { name: "About Us", url: "/about" },
-    { name: "Gallery", url: "/gallery" },
-    { name: "Flora", url: "/flora" },
-    { name: "Conservation", url: "/conservation" },
+    { name: "About Us", url: "/about-us" },
+    { name: "Product", url: "/product" },
+    { name: "Project", url: "/project" },
     { name: "Contact", url: "/contact" },
   ];
 
   const contactInfo = [
-    { icon: <FaMapMarkerAlt />, text: "Kokan Valley, Maharashtra, India" },
-    { icon: <FaPhone />, text: "+91 98765 43210" },
-    { icon: <FaEnvelope />, text: "info@greenplantvalley.com" },
+    { icon: <FaMapMarkerAlt />, text: "Kokan Valley Agro Farms, Tondali Road Kangwai , Tal-Dapoli , Dist. Ratnagiri - 415712" },
+    { icon: <FaPhone />, text: "+91 8669021382" },
+    { icon: <FaEnvelope />, text: "info@kokanvalley.com" },
     { icon: <FaClock />, text: "Open daily: 6:00 AM - 6:00 PM" },
   ];
 

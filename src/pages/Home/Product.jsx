@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { FiHeart, FiShoppingCart } from "react-icons/fi";
+import { motion } from "framer-motion"; // ✅ Import Framer Motion
 import { Banner1, Banner2, Banner3 } from "../../assets";
 
 // Category buttons
@@ -15,31 +16,27 @@ const categories = [
 const products = [
   {
     name: "Aminoz",
-  
     image: Banner1,
     category: "Plant Protectants",
-      description: "Lush green landscapes of Kokan Valley"
+    description: "Lush green landscapes of Kokan Valley",
   },
   {
     name: "Aminozz",
-   
     image: Banner2,
     category: "Nutrient Solutions",
-      description: "Lush green landscapes of Kokan Valley"
+    description: "Lush green landscapes of Kokan Valley",
   },
   {
     name: "BananaKing",
-
     image: Banner3,
     category: "Nutrient Solutions",
-      description: "Lush green landscapes of Kokan Valley"
+    description: "Lush green landscapes of Kokan Valley",
   },
   {
     name: "Kokan Valley Greens",
-
     image: Banner1,
     category: "Special Products",
-    description: "Lush green landscapes of Kokan Valley"
+    description: "Lush green landscapes of Kokan Valley",
   },
 ];
 
@@ -75,8 +72,11 @@ export default function ProductPage() {
       {filteredProducts.length > 0 ? (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {filteredProducts.map((prod, idx) => (
-            <div
+            <motion.div
               key={idx}
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: idx * 0.1 }}
               className="bg-white rounded-md shadow-md overflow-hidden relative"
             >
               <img
@@ -89,15 +89,16 @@ export default function ProductPage() {
               </button>
               <div className="p-4">
                 <h3 className="font-semibold text-lg">{prod.name}</h3>
-         
                 {prod.description && (
-                  <p className="text-xs text-gray-600 mt-1">{prod.description}</p>
+                  <p className="text-xs text-gray-600 mt-1">
+                    {prod.description}
+                  </p>
                 )}
                 <button className="mt-3 flex items-center gap-1 px-3 py-2 text-sm bg-green-600 text-white rounded-md hover:bg-green-700">
                   <FiShoppingCart className="text-white" /> Add to Cart
                 </button>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       ) : (

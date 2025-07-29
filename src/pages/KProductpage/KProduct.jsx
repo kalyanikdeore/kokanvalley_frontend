@@ -81,7 +81,7 @@ const GalleryPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-yellow-50 pt-60 mb-8 px-6">
+    <div className="min-h-screen bg-yellow-50 pt-33 mb-8 px-6">
       <h1 className="text-4xl font-bold text-green-800 text-center mb-8">
         Konkan Valley Product
       </h1>

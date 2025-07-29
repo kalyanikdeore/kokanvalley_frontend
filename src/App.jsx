@@ -12,7 +12,8 @@ import Contactuspage from "./pages/Contactuspage/Contactuspage";
 import Locationpage from "./pages/Locationpage/Locationpage";
 import Aboutpage from "./pages/Aboutpage/Aboutpage";
 import Projectpage from "./pages/Projectpage/Projectpage";
-import Productpage from "./pages/Productpage/Productpage";
+import KProductpage from "./pages/KProductpage/KProductpage";
+
 function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
@@ -23,7 +24,7 @@ function App() {
           <Route path="/contact" element={<Contactuspage />} />
           <Route path="/location" element={<Locationpage />} />
           <Route path="/about-us" element={<Aboutpage />} />
-            <Route path="/product" element={<Productpage />} />
+ <Route path="/product" element={<KProductpage />} />
           <Route path="/project" element={<Projectpage />} />
           {/* <Route path="/history" element={<Historyofdistrict />} /> */}
         </Route>
