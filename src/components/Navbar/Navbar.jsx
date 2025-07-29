@@ -33,7 +33,7 @@ const Navbar = () => {
 
   const navItems = [
     { label: "Home", path: "/", icon: <Home className="h-4 w-4 mr-2" /> },
-    { label: "About", path: "/about", icon: <Info className="h-4 w-4 mr-2" /> },
+    { label: "About", path: "/about-us", icon: <Info className="h-4 w-4 mr-2" /> },
     {
       label: "Product",
       path: "/services",
@@ -79,14 +79,14 @@ const Navbar = () => {
               className="flex items-center hover:text-green-200 transition-colors"
             >
               <Mail className="h-4 w-4 mr-1" />
-              info@leelafarmhouse.com
+      info@kokanvalley.com
             </a>
             <a
               href="tel:+918261079943"
               className="flex items-center hover:text-green-200 transition-colors"
             >
               <Phone className="h-4 w-4 mr-1" />
-              +91 8261079943
+            +91 8669021382
             </a>
           </div>
           <div className="hidden md:flex items-center space-x-4">

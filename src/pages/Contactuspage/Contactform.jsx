@@ -41,7 +41,7 @@ const ContactPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-green-50 py-66 to-white pt-16">
+    <div className="min-h-screen bg-gradient-to-b from-green-50 py-59 to-white ">
       {/* Main Content Section */}
       <div className="container mx-auto px-6 py-8">
         <motion.div
@@ -191,8 +191,8 @@ const ContactPage = () => {
                     <h3 className="text-lg font-medium text-gray-900">
                       Call Us
                     </h3>
-                    <p className="mt-1 text-gray-600">+91 1234567890</p>
-                    <p className="mt-1 text-gray-600">+91 9876543210</p>
+                    <p className="mt-1 text-gray-600">+91 8669021382</p>
+               
                   </div>
                 </motion.div>
 
@@ -220,9 +220,7 @@ const ContactPage = () => {
                       Email Us
                     </h3>
                     <p className="mt-1 text-gray-600">info@kokanvalley.com</p>
-                    <p className="mt-1 text-gray-600">
-                      support@kokanvalley.com
-                    </p>
+                  
                   </div>
                 </motion.div>
 
@@ -255,12 +253,12 @@ const ContactPage = () => {
                     <h3 className="text-lg font-medium text-gray-900">
                       Visit Us
                     </h3>
-                    <p className="mt-1 text-gray-600">Kokan Valley Office</p>
+                    <p className="mt-1 text-gray-600">Kokan Valley Agro Farms</p>
                     <p className="mt-1 text-gray-600">
-                      Near Beach Road, Alibaug
+                     Tondali Road, Kangwai, Tal-Dapoli,
                     </p>
                     <p className="mt-1 text-gray-600">
-                      Maharashtra, India - 402201
+                     Dist.Ratnagiri-415712
                     </p>
                   </div>
                 </motion.div>
