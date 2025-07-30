@@ -133,7 +133,7 @@ const Navbar = () => {
               <img
                 src={logo}
                 alt="Leela Farmhouse"
-                className="h-30 w-40"
+                className="h-30 w-30"
               />
             </a>
           </div>
