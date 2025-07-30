@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
 import { FaLightbulb, FaShieldAlt, FaRocket, FaHandshake } from "react-icons/fa";
+import { Banner1 } from "../../assets";
+
 
 const AboutUsPage = () => {
   // Animation variants
@@ -85,7 +87,7 @@ const AboutUsPage = () => {
           <motion.div variants={item} className="relative">
             <div className="relative rounded-xl overflow-hidden shadow-2xl">
               <img 
-                src="/team-working.jpg" 
+                  src={Banner1}  // Changed from 'url=' to 'src='
                 alt="Our team working together"
                 className="w-full h-auto"
               />
