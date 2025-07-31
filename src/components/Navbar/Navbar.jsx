@@ -228,15 +228,15 @@ const Navbar = () => {
               <div className="flex justify-between items-center mb-8">
                 <div className="flex items-center">
                   <img
-                    src="/logo.png"
-                    alt="Leela Farmhouse"
+                    src={logo}
+                    alt="Kokan Valley"
                     className="h-10 w-10"
                   />
                   <a
                     href="/home"
                     className="text-xl font-bold text-green-600 ml-2"
                   >
-                    Leela Farmhouse
+              Kokan Valley
                   </a>
                 </div>
                 <button onClick={toggleMenu} className="text-gray-800">
@@ -306,14 +306,14 @@ const Navbar = () => {
 
               <div className="mt-6">
                 <a
-                  href="tel:+918261079943"
+                  href="tel:+918669021382"
                   className="w-full bg-green-600 hover:bg-green-700 text-white px-4 py-3 rounded-lg flex items-center justify-center transition-colors mb-4"
                 >
                   <Phone className="h-5 w-5 mr-2" />
                   Call Now
                 </a>
                 <a
-                  href="https://wa.me/918261079943"
+                  href="https://wa.me/918669021382"
                   className="w-full bg-green-600 hover:bg-green-700 text-white px-4 py-3 rounded-lg flex items-center justify-center transition-colors"
                 >
                   <FaWhatsapp className="h-5 w-5 mr-2" />
@@ -324,22 +324,22 @@ const Navbar = () => {
               <div className="mt-8 p-4 bg-green-50 rounded-lg">
                 <h3 className="font-semibold text-gray-900 mb-3">Contact Us</h3>
                 <a
-                  href="mailto:info@leelafarmhouse.com"
+                  href="mailto:info@kokanvalley.com"
                   className="flex items-center text-gray-700 mb-2"
                 >
                   <Mail className="h-5 w-5 mr-2 text-green-600" />
-                  info@leelafarmhouse.com
+                       info@kokanvalley.com
                 </a>
                 <a
                   href="tel:+917972709407"
                   className="flex items-center text-gray-700 mb-2"
                 >
                   <Phone className="h-5 w-5 mr-2 text-green-600" />
-                  +918261079943
+                  +918669021382
                 </a>
                 <div className="flex items-start text-gray-700">
                   <MapPin className="h-5 w-5 mr-2 text-green-600 mt-1" />
-                  <span>Near Pune, Maharashtra</span>
+                  <span>Kokan Valley Agro Farms, Tondali Road Kangwai , Tal-Dapoli , Dist. Ratnagiri - 415712</span>
                 </div>
 
                 {/* Social Media Links */}
