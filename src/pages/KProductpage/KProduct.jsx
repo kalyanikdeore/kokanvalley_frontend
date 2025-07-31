@@ -7,7 +7,7 @@ const DoorCard = ({ title, subtitle, description, buttonText, onEnquire, image }
   return (
     <div className="w-full rounded overflow-hidden shadow-lg bg-white m-2">
       {/* Image Section */}
-      <div className="h-48 bg-green-200 overflow-hidden">
+      <div className="h-48  bg-green-200 overflow-hidden">
         <img 
           src={image}  
           alt={title} 
@@ -17,7 +17,7 @@ const DoorCard = ({ title, subtitle, description, buttonText, onEnquire, image }
       
       {/* Content Section */}
       <div className="px-6 py-4">
-        <div className="font-bold text-xl mb-2 text-gray-800">{title}</div>
+        <div className="font-bold text-xl mb-2 text-green-800">{title}</div>
         <p className="text-gray-600 text-lg font-semibold mb-2">{subtitle}</p>
         <p className="text-gray-500 text-base mb-4">
           {description}
@@ -84,8 +84,8 @@ const DoorsSection = () => {
   };
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold text-center mb-8">Our Door Collection</h1>
+    <div className="container mx-auto px-4 mt-33">
+      <h1 className="text-3xl font-bold text-green-700 text-center mb-8">Our Door Collection</h1>
       <div className="flex flex-nowrap overflow-x-auto pb-4 -mx-2">
         {doors.map((door) => (
           <div key={door.id} className="w-1/4 px-2 flex-shrink-0">
