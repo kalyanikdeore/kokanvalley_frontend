@@ -5,20 +5,20 @@ const TeamSection = () => {
   // Mock data for the team members
   const teamData = [
     {
-      name: "John Doe",
-      position: "Founder & CEO",
+      name: "Mr. Shivaji Sonone (Engg.)",
+      position: "Managing Director",
       description: "With over 15 years of experience in hospitality, John ensures our farmhouse maintains the highest standards.",
       image_url: "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
     },
     {
-      name: "Jane Smith",
-      position: "Head Chef",
+      name: "Mr. Shanakr Thete",
+      position: "Director (Marketing)",
       description: "Jane brings her expertise in organic farm-to-table cuisine to create unforgettable dining experiences.",
       image_url: "https://images.unsplash.com/photo-1554151228-14d9def656e4?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
     },
     {
-      name: "Robert Johnson",
-      position: "Activities Director",
+      name: "Mr.Arun Kale",
+      position: "Director (Admin)",
       description: "Robert organizes all our nature activities and ensures guests have memorable adventures.",
       image_url: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
     }
@@ -33,7 +33,7 @@ const TeamSection = () => {
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
       >
-        Meet Our Family
+        Meet Our Team
       </motion.h2>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
