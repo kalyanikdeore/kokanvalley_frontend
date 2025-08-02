@@ -53,7 +53,7 @@ const Footer = () => {
   ];
 
   const contactInfo = [
-    { icon: <FaMapMarkerAlt />, text: "Kokan Valley Agro Farms, Tondali Road Kangwai , Tal-Dapoli , Dist. Ratnagiri - 415712" },
+    { icon: <FaMapMarkerAlt />, text: "Kokan Valley Agro Farms, Shiravane , Tal-Dapoli , Dist. Ratnagiri - 415712" },
     { icon: <FaPhone />, text: "+91 8669021382" },
     { icon: <FaEnvelope />, text: "info@kokanvalley.com" },
     { icon: <FaClock />, text: "Open daily: 6:00 AM - 6:00 PM" },

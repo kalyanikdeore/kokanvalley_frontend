@@ -70,40 +70,41 @@ const DoorsSection = () => {
   const doors = [
     {
       id: 1,
-      title: "Doors",
-      subtitle: "Ishani Doors",
+        title: "Nature Experience",
+  subtitle: "Kokan Valley Escapes",
       description: "Crafted with precision and elegance, perfect for modern homes with a touch of sophistication.",
       buttonText: "Enquire Now",
       image: Banner1
     },
     {
       id: 2,
-      title: "Doors",
-      subtitle: "Royal Doors",
+         title: "Monsoon Magic",
+         subtitle: "Waterfall Adventures",
+   
       description: "Grand appearance with enhanced durability, suited for luxurious spaces and premium interiors.",
       buttonText: "Enquire Now",
       image: Banner2
     },
     {
       id: 3,
-      title: "Doors",
-      subtitle: "Elite Door",
+          title: "Mountain Escapes",
+subtitle: "Sahyadri Treks",
       description: "Sleek design with superior insulation and noise reduction, ideal for contemporary urban living.",
       buttonText: "Enquire Now",
       image: Banner3
     },
     {
       id: 4,
-      title: "Doors",
-      subtitle: "Kokan Valley Doors",
+ title: "Cultural Immersion",
+      subtitle: "Village Experiences",
       description: "Inspired by the natural modern functionality. Perfect for homes that appreciate regional artistry.",
       buttonText: "Enquire Now",
       image: Banner1
     },
     {
       id: 5,
-      title: "Doors",
-      subtitle: "Smart Safety Door",
+      title: "Wildlife Sanctuaries",
+   subtitle: "Amboli & Phansad",
       description: "Engineered for protection and style — combines high-security features with elegant design.",
       buttonText: "Enquire Now",
       image: Banner2

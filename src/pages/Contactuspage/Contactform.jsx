@@ -255,7 +255,7 @@ const ContactPage = () => {
                     </h3>
                     <p className="mt-1 text-gray-600">Kokan Valley Agro Farms</p>
                     <p className="mt-1 text-gray-600">
-                     Tondali Road, Kangwai, Tal-Dapoli,
+                   Shiravane, Tal-Dapoli,
                     </p>
                     <p className="mt-1 text-gray-600">
                      Dist.Ratnagiri-415712
