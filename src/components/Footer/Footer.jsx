@@ -3,6 +3,7 @@ import {
   FaLeaf,
   FaFacebook,
   FaInstagram,
+  FaLinkedin ,
   FaTwitter,
   FaYoutube,
   FaMapMarkerAlt,
@@ -38,10 +39,10 @@ const Footer = () => {
   };
 
   const socialLinks = [
-    { icon: <FaFacebook className="text-lg" />, name: "Facebook", url: "#" },
-    { icon: <FaInstagram className="text-lg" />, name: "Instagram", url: "#" },
-    { icon: <FaTwitter className="text-lg" />, name: "Twitter", url: "#" },
-    { icon: <FaYoutube className="text-lg" />, name: "YouTube", url: "#" },
+{ icon: <FaFacebook className="text-lg" />, name: "Facebook", url: "https://www.facebook.com/konkanvalleyagrofarms/" },
+{ icon: <FaInstagram className="text-lg" />, name: "Instagram", url: "https://www.instagram.com/konkan.valley.agro.farms" },
+{ icon: <FaLinkedin className="text-lg" />, name: "LinkedIn", url: "https://www.linkedin.com/in/shivaji-sonone-b54946377/" },
+{ icon: <FaYoutube className="text-lg" />, name: "YouTube", url: "https://www.youtube.com/@KonkanVallyAgroFarms" }
   ];
 
   const quickLinks = [
