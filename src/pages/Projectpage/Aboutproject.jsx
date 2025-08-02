@@ -48,7 +48,7 @@ const Aboutsection = () => {
           variants={containerVariants}
         >
           <motion.h2 
-            className="text-4xl md:text-5xl font-bold text-gray-800 mb-4"
+            className="text-3xl md:text-4xl font-bold text-gray-800 mb-4"
             variants={itemVariants}
           >
             Discover <span className="text-green-600">Kokan Valley</span>

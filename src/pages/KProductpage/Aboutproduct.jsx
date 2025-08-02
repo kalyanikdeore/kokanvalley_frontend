@@ -73,7 +73,7 @@ const AboutUsPage = () => {
       >
         <div className="grid md:grid-cols-2 gap-16 items-center">
           <motion.div variants={item}>
-            <h2 className="text-3xl font-bold text-green-900 mb-6">Our Product</h2>
+            <h2 className="text-3xl md:text-4xl  font-bold text-green-900 mb-6">Our Product</h2>
             <p className="text-gray-600 mb-6 leading-relaxed">
               Founded in 2015 by a team of passionate engineers, we started with a simple mission: to create products that solve real problems. What began as a small startup in a garage has now grown into an industry leader serving customers worldwide.
             </p>

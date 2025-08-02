@@ -1,13 +1,42 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-
+import { motion } from "framer-motion"; // Added motion import
 import { Banner1, Banner2, Banner3 } from "../../assets";
+
+// Animation variants
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2
+    }
+  }
+};
+
+const itemVariants = {
+  hidden: { y: 20, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.5
+    }
+  }
+};
 
 const DoorCard = ({ title, subtitle, description, buttonText, onEnquire, image }) => {
   return (
-    <div className="w-full rounded overflow-hidden shadow-lg bg-white m-2">
+    <motion.div 
+      className="w-full rounded overflow-hidden shadow-lg bg-white m-2"
+      whileHover={{ y: -5, transition: { duration: 0.2 } }}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      variants={itemVariants}
+    >
       {/* Image Section */}
-      <div className="h-48  bg-green-200 overflow-hidden">
+      <div className="h-48 bg-green-200 overflow-hidden">
         <img 
           src={image}  
           alt={title} 
@@ -22,14 +51,16 @@ const DoorCard = ({ title, subtitle, description, buttonText, onEnquire, image }
         <p className="text-gray-500 text-base mb-4">
           {description}
         </p>
-        <button 
+        <motion.button 
           onClick={onEnquire}
           className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded transition-colors duration-300"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
         >
           {buttonText}
-        </button>
+        </motion.button>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
@@ -85,10 +116,35 @@ const DoorsSection = () => {
 
   return (
     <div className="container mx-auto px-4 mt-33">
-      <h1 className="text-3xl font-bold text-green-700 text-center mb-8">Our Door Collection</h1>
+      <motion.div 
+        className="text-center mb-16"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={containerVariants}
+      >
+        <motion.h2 
+          className="text-3xl md:text-4xl font-bold text-gray-800 mb-4"
+          variants={itemVariants}
+        >
+          Our Door <span className="text-green-600">Collection</span>
+        </motion.h2>
+        <motion.div 
+          className="w-24 h-1.5 bg-green-500 mx-auto rounded-full"
+          variants={itemVariants}
+        ></motion.div>
+      </motion.div>
+      
       <div className="flex flex-nowrap overflow-x-auto pb-4 -mx-2">
         {doors.map((door) => (
-          <div key={door.id} className="w-1/4 px-2 flex-shrink-0">
+          <motion.div 
+            key={door.id} 
+            className="w-1/4 px-2 flex-shrink-0"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={itemVariants}
+          >
             <DoorCard
               title={door.title}
               subtitle={door.subtitle}
@@ -97,7 +153,7 @@ const DoorsSection = () => {
               image={door.image}
               onEnquire={() => handleEnquire(door.id)}
             />
-          </div>
+          </motion.div>
         ))}
       </div>
     </div>

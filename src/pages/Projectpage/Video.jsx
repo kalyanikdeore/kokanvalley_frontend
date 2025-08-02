@@ -1,13 +1,35 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import video1 from "../../assets/videos.mp4";
 import video2 from "../../assets/videos2.mp4";
 
+// Define animation variants
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2
+    }
+  }
+};
+
+const itemVariants = {
+  hidden: { y: 20, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.5
+    }
+  }
+};
+
 const AwardSection = () => {
   const [currentVideo, setCurrentVideo] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [awards, setAwards] = useState({
+  const [awards] = useState({
     videoAwards: [
       {
         id: 1,
@@ -28,8 +50,6 @@ const AwardSection = () => {
     ],
     imageAwards: []
   });
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
   const carouselRef = useRef(null);
 
   const nextVideo = () => {
@@ -53,8 +73,6 @@ const AwardSection = () => {
     carouselRef.current.scrollTo({ left: scrollAmount, behavior: "smooth" });
   };
 
-  if (loading) return <div className="text-center py-8">Loading awards...</div>;
-  if (error) return <div className="text-center py-8 text-red-500">Error: {error}</div>;
   if (awards.videoAwards.length === 0) {
     return <div className="text-center py-8">No awards found</div>;
   }
@@ -62,34 +80,51 @@ const AwardSection = () => {
   return (
     <section className="bg-green-50 py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
-        <motion.div
-          className="text-center mb-12"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+        <motion.div 
+          className="text-center mb-16"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={containerVariants}
         >
-          <h2 className="text-3xl font-bold text-green-700 mb-2">
-            Awards & Recognition
-          </h2>
-          <motion.div
-            className="h-1 w-16 bg-green-600 mx-auto mb-6"
-            initial={{ width: 0 }}
-            animate={{ width: "4rem" }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-          />
-          <p className="text-lg text-green-700 max-w-3xl mx-auto">
+          <motion.h2 
+            className="text-3xl md:text-4xl font-bold text-gray-800 mb-4"
+            variants={itemVariants}
+          >
+            Awards & <span className="text-green-600">Recognition</span>
+          </motion.h2>
+          <motion.div 
+            className="w-24 h-1.5 bg-green-500 mx-auto rounded-full"
+            variants={itemVariants}
+          ></motion.div>
+          <motion.p
+            className="text-lg text-green-700 max-w-3xl mx-auto mt-6"
+            variants={itemVariants}
+          >
             Our commitment to excellence has been recognized by industry leaders
             and satisfied customers alike.
-          </p>
+          </motion.p>
         </motion.div>
 
         {/* Video Showcase */}
         <div className="mb-16">
-          <h3 className="text-2xl font-semibold text-green-800 mb-6 text-center">
+          <motion.h3 
+            className="text-2xl font-semibold text-green-800 mb-6 text-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
             Featured Awards
-          </h3>
+          </motion.h3>
 
-          <div className="relative bg-white rounded-xl shadow-lg overflow-hidden max-w-4xl mx-auto">
+          <motion.div 
+            className="relative bg-white rounded-xl shadow-lg overflow-hidden max-w-4xl mx-auto"
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
             {!isPlaying ? (
               <div className="relative">
                 <img
@@ -100,6 +135,7 @@ const AwardSection = () => {
                 <button
                   onClick={() => setIsPlaying(true)}
                   className="absolute inset-0 flex items-center justify-center"
+                  aria-label="Play video"
                 >
                   <div className="bg-green-600 bg-opacity-80 rounded-full p-4 hover:bg-opacity-100 transition-all">
                     <svg
@@ -136,26 +172,32 @@ const AwardSection = () => {
 
             <div className="p-6">
               <h4 className="text-xl font-bold text-green-900">
-                {`${awards.videoAwards[currentVideo].title} ${awards.videoAwards[currentVideo].year}`}
+                {`${awards.videoAwards[currentVideo].title} (${awards.videoAwards[currentVideo].year})`}
               </h4>
               <p className="text-green-700 mt-2">
                 {awards.videoAwards[currentVideo].description}
               </p>
             </div>
 
-            <button
-              onClick={prevVideo}
-              className="absolute left-5 top-1/2 -translate-y-1/2 z-20 bg-green-600/80 hover:bg-green-700 text-white p-3 rounded-full shadow"
-            >
-              <ChevronLeft className="w-6 h-6" />
-            </button>
-            <button
-              onClick={nextVideo}
-              className="absolute right-5 top-1/2 -translate-y-1/2 z-20 bg-green-600/80 hover:bg-green-700 text-white p-3 rounded-full shadow"
-            >
-              <ChevronRight className="w-6 h-6" />
-            </button>
-          </div>
+            {awards.videoAwards.length > 1 && (
+              <>
+                <button
+                  onClick={prevVideo}
+                  className="absolute left-5 top-1/2 -translate-y-1/2 z-20 bg-green-600/80 hover:bg-green-700 text-white p-3 rounded-full shadow"
+                  aria-label="Previous video"
+                >
+                  <ChevronLeft className="w-6 h-6" />
+                </button>
+                <button
+                  onClick={nextVideo}
+                  className="absolute right-5 top-1/2 -translate-y-1/2 z-20 bg-green-600/80 hover:bg-green-700 text-white p-3 rounded-full shadow"
+                  aria-label="Next video"
+                >
+                  <ChevronRight className="w-6 h-6" />
+                </button>
+              </>
+            )}
+          </motion.div>
         </div>
       </div>
     </section>

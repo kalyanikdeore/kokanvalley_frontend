@@ -38,6 +38,28 @@ const TestimonialSlider = () => {
     },
   ];
 
+  // Animation variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.5,
+      },
+    },
+  };
+
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(1); // 1 for forward, -1 for backward
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
@@ -117,19 +139,29 @@ const TestimonialSlider = () => {
   return (
     <section className="py-16 bg-teal-50 overflow-hidden">
       <div className="container mx-auto px-4">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+        <motion.div 
+          className="text-center mb-16"
+          initial="hidden"
+          whileInView="visible"
           viewport={{ once: true }}
-          className="text-center mb-12"
+          variants={containerVariants}
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-green-800 mb-4">
+          <motion.h2 
+            className="text-3xl md:text-4xl font-bold text-gray-800 mb-4"
+            variants={itemVariants}
+          >
             What People <span className="text-green-600">Say</span>
-          </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          </motion.h2>
+          <motion.div 
+            className="w-24 h-1.5 bg-green-500 mx-auto rounded-full"
+            variants={itemVariants}
+          ></motion.div>
+          <motion.p 
+            className="text-lg text-gray-600 max-w-2xl mx-auto mt-4"
+            variants={itemVariants}
+          >
             Hear from those who have experienced our work firsthand
-          </p>
+          </motion.p>
         </motion.div>
 
         <div className="relative">
@@ -165,9 +197,11 @@ const TestimonialSlider = () => {
                 {testimonials
                   .slice(currentIndex, currentIndex + cardsToShow)
                   .map((testimonial) => (
-                    <div
+                    <motion.div
                       key={testimonial.id}
                       className="bg-white p-8 rounded-xl shadow-md w-full h-full flex flex-col"
+                      whileHover={{ y: -5 }}
+                      transition={{ duration: 0.2 }}
                     >
                       <div className="text-teal-400 text-3xl mb-4">
                         <FaQuoteLeft />
@@ -199,7 +233,7 @@ const TestimonialSlider = () => {
                           ))}
                         </div>
                       </div>
-                    </div>
+                    </motion.div>
                   ))}
               </motion.div>
             </AnimatePresence>

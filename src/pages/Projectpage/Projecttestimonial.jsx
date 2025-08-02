@@ -2,6 +2,28 @@ import React, { useRef } from "react";
 import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
+// Animation variants
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1
+    }
+  }
+};
+
+const itemVariants = {
+  hidden: { y: 20, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.5
+    }
+  }
+};
+
 const clientTestimonials = [
   {
     name: "Rajesh Mehta",
@@ -50,7 +72,6 @@ const clientTestimonials = [
 const TestimonialSection = () => {
   const clientsRef = useRef(null);
 
-  // Client testimonials carousel scroll
   const scrollClients = (direction) => {
     if (clientsRef.current) {
       const scrollAmount = direction === "left" ? -300 : 300;
@@ -63,23 +84,24 @@ const TestimonialSection = () => {
       <div className="max-w-7xl mx-auto">
         {/* Client Testimonials */}
         <div className="mt-28">
-          <motion.h2
-            className="text-3xl md:text-4xl font-bold text-center text-green-700 mb-4"
-            initial={{ opacity: 0, y: -20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
+          <motion.div 
+            className="text-center mb-16"
+            initial="hidden"
+            whileInView="visible"
             viewport={{ once: true }}
+            variants={containerVariants}
           >
-            What Our Clients Say
-          </motion.h2>
-
-          <motion.div
-            className="h-1 w-16 bg-green-500 mx-auto mb-12"
-            initial={{ width: 0 }}
-            whileInView={{ width: "4rem" }}
-            transition={{ delay: 0.3, duration: 0.5 }}
-            viewport={{ once: true }}
-          />
+            <motion.h2 
+              className="text-3xl md:text-4xl font-bold text-gray-800 mb-4"
+              variants={itemVariants}
+            >
+              What Our <span className="text-green-600">Client Say</span>
+            </motion.h2>
+            <motion.div 
+              className="w-24 h-1.5 bg-green-500 mx-auto rounded-full"
+              variants={itemVariants}
+            ></motion.div>
+          </motion.div>
 
           <div className="relative">
             <button

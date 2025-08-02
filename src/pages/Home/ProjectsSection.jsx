@@ -3,26 +3,52 @@ import { motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Banner1, Banner2, Banner3 } from "../../assets";
 
+// Define animation variants (add these at the top of your file)
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1
+    }
+  }
+};
+
+const itemVariants = {
+  hidden: { y: 20, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.5
+    }
+  }
+};
+
 const OutdoorGallery = () => {
   const outdoorRef = useRef(null);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   // Local outdoor image data
   const outdoorImages = [
     {
       id: 1,
       src: Banner1,
-      alt: "Beautiful garden view"
+      alt: "Beautiful garden view",
+      category: "Outdoor"
     },
     {
       id: 2,
       src: Banner2,
-      alt: "Scenic outdoor patio"
+      alt: "Scenic outdoor patio",
+      category: "Outdoor"
     },
     {
       id: 3,
       src: Banner3,
-      alt: "Sunset by the pool"
+      alt: "Sunset by the pool",
+      category: "Outdoor"
     }
   ];
 
@@ -32,29 +58,32 @@ const OutdoorGallery = () => {
 
     const interval = setInterval(() => {
       if (outdoorRef.current) {
-        outdoorRef.current.scrollBy({
-          left: 600,
+        const nextIndex = (currentIndex + 1) % outdoorImages.length;
+        setCurrentIndex(nextIndex);
+        
+        outdoorRef.current.scrollTo({
+          left: nextIndex * (300 + 24), // 300 is min-width, 24 is gap
           behavior: "smooth",
         });
-
-        if (
-          outdoorRef.current.scrollLeft + outdoorRef.current.clientWidth >=
-          outdoorRef.current.scrollWidth - 100
-        ) {
-          setTimeout(() => {
-            outdoorRef.current.scrollTo({ left: 0, behavior: "smooth" });
-          }, 1000);
-        }
       }
     }, 5000);
 
     return () => clearInterval(interval);
-  }, [isAutoPlaying, outdoorImages]);
+  }, [isAutoPlaying, currentIndex, outdoorImages.length]);
 
   const scrollCarousel = (direction) => {
     if (outdoorRef.current) {
-      const scrollAmount = direction === "left" ? -300 : 300;
-      outdoorRef.current.scrollBy({ left: scrollAmount, behavior: "smooth" });
+      const newIndex = direction === "left" 
+        ? (currentIndex - 1 + outdoorImages.length) % outdoorImages.length
+        : (currentIndex + 1) % outdoorImages.length;
+      
+      setCurrentIndex(newIndex);
+      
+      outdoorRef.current.scrollTo({ 
+        left: newIndex * (300 + 24), 
+        behavior: "smooth" 
+      });
+      
       setIsAutoPlaying(false);
       setTimeout(() => setIsAutoPlaying(true), 5000);
     }
@@ -64,23 +93,24 @@ const OutdoorGallery = () => {
     <section className="bg-blue-50 py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="mb-20">
-          <motion.h2
-            className="text-3xl md:text-4xl font-bold text-center text-green-800 mb-4"
-            initial={{ opacity: 0, y: -20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
+          <motion.div 
+            className="text-center mb-16"
+            initial="hidden"
+            whileInView="visible"
             viewport={{ once: true }}
+            variants={containerVariants}
           >
-            Our Project
-          </motion.h2>
-
-          <motion.div
-            className="h-1 w-16 bg-green-600 mx-auto mb-12"
-            initial={{ width: 0 }}
-            whileInView={{ width: "4rem" }}
-            transition={{ delay: 0.3, duration: 0.5 }}
-            viewport={{ once: true }}
-          />
+            <motion.h2 
+              className="text-3xl md:text-4xl font-bold text-gray-800 mb-4"
+              variants={itemVariants}
+            >
+              Our <span className="text-green-600">Project</span>
+            </motion.h2>
+            <motion.div 
+              className="w-24 h-1.5 bg-green-500 mx-auto rounded-full"
+              variants={itemVariants}
+            ></motion.div>
+          </motion.div>
 
           <div className="relative">
             <button
@@ -104,31 +134,33 @@ const OutdoorGallery = () => {
               onMouseEnter={() => setIsAutoPlaying(false)}
               onMouseLeave={() => setIsAutoPlaying(true)}
             >
-              {outdoorImages.map((image) => (
+              {outdoorImages.map((image, index) => (
                 <div
                   key={image.id}
                   className="min-w-[300px] sm:min-w-[400px] flex-shrink-0"
                 >
                   <motion.div
-                    className="bg-white rounded-xl shadow-lg overflow-hidden border border-green-100"
+                    className="bg-white rounded-xl shadow-lg overflow-hidden border border-green-100 transition-transform hover:scale-[1.02]"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.4 }}
-                    viewport={{ once: true }}
+                    viewport={{ once: true, margin: "0px 0px -100px 0px" }}
+                    whileHover={{ scale: 1.02 }}
                   >
                     <div className="relative h-64 sm:h-80">
                       <img
                         src={image.src}
                         alt={image.alt}
                         className="w-full h-full object-cover"
+                        loading="lazy"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent flex items-end p-6">
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent flex items-end p-6">
                         <div>
                           <h3 className="text-white font-bold text-lg">
                             {image.alt}
                           </h3>
                           <p className="text-white/90 text-sm">
-                            Outdoor
+                            {image.category}
                           </p>
                         </div>
                       </div>

@@ -20,6 +20,45 @@ const faqs = [
   },
 ];
 
+// Animation variants
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2
+    }
+  }
+};
+
+const itemVariants = {
+  hidden: { y: 20, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.5,
+      ease: "easeOut"
+    }
+  }
+};
+
+const cardVariants = {
+  offscreen: {
+    y: 50,
+    opacity: 0
+  },
+  onscreen: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      type: "spring",
+      bounce: 0.4,
+      duration: 0.8
+    }
+  }
+};
+
 const ProductFAQ = () => {
   const [openIndex, setOpenIndex] = useState(null);
 
@@ -28,25 +67,34 @@ const ProductFAQ = () => {
   };
 
   return (
-    <div className="max-w-5xl mx-auto px-4  sm:px-6 lg:px-8">
-      <motion.h2 
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        viewport={{ once: true }}
-        className="text-3xl font-bold text-center mb-12 text-green-800"
+    <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <motion.div 
+        className="text-center mb-16"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={containerVariants}
       >
-        Frequently Asked Questions
-      </motion.h2>
+        <motion.h2 
+          className="text-3xl md:text-4xl font-bold text-gray-800 mb-4"
+          variants={itemVariants}
+        >
+          Frequently Asked <span className="text-green-600">Questions</span>
+        </motion.h2>
+        <motion.div 
+          className="w-24 h-1.5 bg-green-500 mx-auto rounded-full"
+          variants={itemVariants}
+        ></motion.div>
+      </motion.div>
 
       <div className="space-y-4">
         {faqs.map((faq, index) => (
           <motion.div
             key={index}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-            viewport={{ once: true, margin: "-50px" }}
+            initial="offscreen"
+            whileInView="onscreen"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={cardVariants}
             className="overflow-hidden"
           >
             <motion.div
@@ -96,8 +144,6 @@ const ProductFAQ = () => {
           </motion.div>
         ))}
       </div>
-
-
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { FiHeart, FiShoppingCart } from "react-icons/fi";
-import { motion } from "framer-motion"; // ✅ Import Framer Motion
+import { motion } from "framer-motion";
 import { Banner1, Banner2, Banner3 } from "../../assets";
 
 // Category buttons
@@ -19,29 +19,135 @@ const products = [
     image: Banner1,
     category: "Plant Protectants",
     description: "Lush green landscapes of Kokan Valley",
+    price: "$19.99"
   },
   {
     name: "Aminozz",
     image: Banner2,
     category: "Nutrient Solutions",
     description: "Lush green landscapes of Kokan Valley",
+    price: "$24.99"
   },
   {
     name: "BananaKing",
     image: Banner3,
     category: "Nutrient Solutions",
     description: "Lush green landscapes of Kokan Valley",
+    price: "$29.99"
   },
   {
     name: "Kokan Valley Greens",
     image: Banner1,
     category: "Special Products",
     description: "Lush green landscapes of Kokan Valley",
+    price: "$34.99"
   },
 ];
 
+// Animation variants
+const titleVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    transition: {
+      duration: 0.8,
+      ease: "easeOut"
+    }
+  }
+};
+
+const underlineVariants = {
+  hidden: { scaleX: 0 },
+  visible: {
+    scaleX: 1,
+    transition: {
+      duration: 0.8,
+      delay: 0.3,
+      ease: [0.22, 1, 0.36, 1]
+    }
+  }
+};
+
+const categoryVariants = {
+  hidden: { opacity: 0, y: 10 },
+  visible: (i) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: i * 0.1,
+      duration: 0.5
+    }
+  })
+};
+
+const productVariants = {
+  hidden: { opacity: 0, y: 30, scale: 0.95 },
+  visible: (i) => ({
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      delay: i * 0.15,
+      duration: 0.6,
+      ease: [0.34, 1.56, 0.64, 1]
+    }
+  }),
+  hover: {
+    y: -10,
+    scale: 1.03,
+    boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
+    transition: {
+      duration: 0.4,
+      ease: "easeOut"
+    }
+  }
+};
+
+const imageVariants = {
+  hover: {
+    scale: 1.1,
+    transition: {
+      duration: 0.5,
+      ease: "easeOut"
+    }
+  }
+};
+
+const infoVariants = {
+  hover: {
+    y: -5,
+    transition: {
+      duration: 0.3
+    }
+  }
+};
+
+const buttonHover = {
+  hover: {
+    scale: 1.05,
+    backgroundColor: "#15803d",
+    transition: { 
+      duration: 0.3,
+      ease: "easeOut"
+    }
+  },
+  tap: {
+    scale: 0.98
+  }
+};
+
 export default function ProductPage() {
   const [activeCategory, setActiveCategory] = useState("All");
+  const [likedProducts, setLikedProducts] = useState([]);
+
+  const toggleLike = (productName) => {
+    if (likedProducts.includes(productName)) {
+      setLikedProducts(likedProducts.filter(name => name !== productName));
+    } else {
+      setLikedProducts([...likedProducts, productName]);
+    }
+  };
 
   const filteredProducts =
     activeCategory === "All"
@@ -49,62 +155,141 @@ export default function ProductPage() {
       : products.filter((p) => p.category === activeCategory);
 
   return (
-    <div className="px-6 py-10">
-      <h2 className="text-3xl text-green-600 font-bold mb-2">Our Products</h2>
-      <p className="text-gray-500 text-sm mb-6">All products</p>
+    <div className="px-6 py-10 max-w-screen-2xl mx-auto">
+      {/* Title Section */}
+      <motion.div 
+        className="text-center mb-16"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={{
+          visible: {
+            transition: { staggerChildren: 0.2 }
+          }
+        }}
+      >
+        <motion.h2 
+          className="text-3xl md:text-4xl font-bold text-gray-800 mb-4"
+          variants={titleVariants}
+        >
+          Our <span className="text-green-600">Products</span>
+        </motion.h2>
+        <motion.div 
+          className="w-24 h-1.5 bg-green-500 mx-auto rounded-full origin-left"
+          variants={underlineVariants}
+        />
+      </motion.div>
 
-      <div className="flex flex-wrap gap-3 mb-8">
-        {categories.map((cat) => (
-          <button
-            key={cat}
-            onClick={() => setActiveCategory(cat)}
-            className={`px-4 py-1 rounded-full text-sm ${
-              activeCategory === cat
-                ? "bg-green-600 text-white"
-                : "bg-gray-100 text-gray-700"
-            }`}
-          >
-            {cat}
-          </button>
-        ))}
-      </div>
-
-      {filteredProducts.length > 0 ? (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {filteredProducts.map((prod, idx) => (
-            <motion.div
-              key={idx}
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className="bg-white rounded-md shadow-md overflow-hidden relative"
+      {/* Category Buttons */}
+      <motion.div 
+        className="max-w-6xl mx-auto mb-8"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-50px" }}
+        variants={{
+          visible: {
+            transition: { staggerChildren: 0.1 }
+          }
+        }}
+      >
+        <div className="flex flex-wrap gap-3 justify-center">
+          {categories.map((cat, i) => (
+            <motion.button
+              key={cat}
+              onClick={() => setActiveCategory(cat)}
+              className={`px-4 py-1 rounded-full text-sm ${
+                activeCategory === cat
+                  ? "bg-green-600 text-white"
+                  : "bg-gray-100 text-gray-700"
+              }`}
+              variants={categoryVariants}
+              custom={i}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
             >
-              <img
-                src={prod.image}
-                alt={prod.name}
-                className="w-full h-60 object-cover"
-              />
-              <button className="absolute top-3 right-3 bg-white p-1 rounded-full shadow">
-                <FiHeart className="text-red-500" />
-              </button>
-              <div className="p-4">
-                <h3 className="font-semibold text-lg">{prod.name}</h3>
+              {cat}
+            </motion.button>
+          ))}
+        </div>
+      </motion.div>
+
+      {/* Products Grid */}
+      {filteredProducts.length > 0 ? (
+        <motion.div 
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          variants={{
+            visible: {
+              transition: { staggerChildren: 0.1 }
+            }
+          }}
+        >
+          {filteredProducts.map((prod, i) => (
+            <motion.div
+              key={i}
+              variants={productVariants}
+              custom={i}
+              whileHover="hover"
+              className="bg-white rounded-xl shadow-lg overflow-hidden relative group"
+            >
+              <div className="relative overflow-hidden h-60">
+                <motion.img
+                  src={prod.image}
+                  alt={prod.name}
+                  className="w-full h-full object-cover"
+                  variants={imageVariants}
+                  whileHover="hover"
+                />
+                <motion.button 
+                  className="absolute top-3 right-3 bg-white p-2 rounded-full shadow-lg"
+                  whileHover={{ scale: 1.2 }}
+                  whileTap={{ scale: 0.9 }}
+                  onClick={() => toggleLike(prod.name)}
+                >
+                  <FiHeart 
+                    className={`text-lg ${likedProducts.includes(prod.name) ? 'text-red-500 fill-red-500' : 'text-gray-400'}`} 
+                  />
+                </motion.button>
+              </div>
+              
+              <motion.div 
+                className="p-5"
+                variants={infoVariants}
+              >
+                <div className="flex justify-between items-start">
+                  <h3 className="font-semibold text-lg text-gray-800">{prod.name}</h3>
+                  <span className="font-bold text-green-600">{prod.price}</span>
+                </div>
                 {prod.description && (
-                  <p className="text-xs text-gray-600 mt-1">
+                  <p className="text-sm text-gray-600 mt-2">
                     {prod.description}
                   </p>
                 )}
-                <button className="mt-3 flex items-center gap-1 px-3 py-2 text-sm bg-green-600 text-white rounded-md hover:bg-green-700">
-                  <FiShoppingCart className="text-white" /> Add to Cart
-                </button>
-              </div>
+                <motion.button 
+                  className="mt-4 flex items-center gap-2 px-4 py-2 text-sm bg-green-600 text-white rounded-lg w-full justify-center"
+                  variants={buttonHover}
+                  whileHover="hover"
+                  whileTap="tap"
+                >
+                  <FiShoppingCart className="text-white" /> 
+                  <span>Add to Cart</span>
+                </motion.button>
+              </motion.div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       ) : (
-        <div className="text-center py-10">
+        <motion.div
+          className="text-center py-10"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
           <p className="text-gray-500">No products found in this category</p>
-        </div>
+        </motion.div>
       )}
     </div>
   );
