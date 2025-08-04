@@ -61,19 +61,18 @@ const TestimonialSlider = () => {
   };
 
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [direction, setDirection] = useState(1); // 1 for forward, -1 for backward
+  const [direction, setDirection] = useState(1);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const [cardsToShow, setCardsToShow] = useState(1);
 
-  // Number of cards to show based on screen size
   const getCardsToShow = () => {
     if (window.innerWidth >= 1024) return 3;
     if (window.innerWidth >= 768) return 2;
     return 1;
   };
 
-  const [cardsToShow, setCardsToShow] = useState(getCardsToShow());
-
   useEffect(() => {
+    setCardsToShow(getCardsToShow());
     const handleResize = () => {
       setCardsToShow(getCardsToShow());
     };
@@ -82,7 +81,6 @@ const TestimonialSlider = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Auto-slide functionality
   useEffect(() => {
     let interval;
     if (isAutoPlaying) {
@@ -165,7 +163,6 @@ const TestimonialSlider = () => {
         </motion.div>
 
         <div className="relative">
-          {/* Navigation Arrows */}
           <button
             onClick={goToPrev}
             className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white p-3 rounded-full shadow-md hover:bg-teal-100 transition-colors -ml-4"
@@ -181,7 +178,6 @@ const TestimonialSlider = () => {
             <FaChevronRight className="text-teal-600 text-xl" />
           </button>
 
-          {/* Slider Container */}
           <div className="relative h-[400px] md:h-[350px] overflow-hidden">
             <AnimatePresence custom={direction} initial={false}>
               <motion.div
@@ -192,7 +188,7 @@ const TestimonialSlider = () => {
                 animate="center"
                 exit="exit"
                 transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                className="absolute inset-0 flex gap-6 px-2"
+                className="absolute inset-0 flex gap-4 px-2"
               >
                 {testimonials
                   .slice(currentIndex, currentIndex + cardsToShow)
@@ -239,7 +235,6 @@ const TestimonialSlider = () => {
             </AnimatePresence>
           </div>
 
-          {/* Indicators */}
           <div className="flex justify-center mt-8 space-x-2">
             {Array.from({ length: testimonials.length - cardsToShow + 1 }).map(
               (_, index) => (

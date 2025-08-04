@@ -58,7 +58,7 @@ const AboutSection = () => {
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
+            viewport={{ once: true }}z
           >
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-green-800 mb-4">
               Our Story

@@ -196,7 +196,7 @@ const Navbar = () => {
             ))}
             {/* Call Now Button */}
             <a
-              href="tel:+918261079943"
+              href="tel:+918669021382"
               className="ml-4 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg flex items-center transition-colors"
             >
               <Phone className="h-4 w-4 mr-2" />

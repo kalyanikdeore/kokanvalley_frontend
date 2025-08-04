@@ -8,21 +8,21 @@ const HeroSection = () => {
     {
       id: 1,
       video_url: video,
-      ctaHighlight: "Eco-Friendly Solutions",
+      // ctaHighlight: "Eco-Friendly Solutions",
       title: "Sustainable Living Starts Here",
       description: "Discover our green technologies for a healthier planet and a brighter future."
     },
     {
       id: 2,
       video_url: video,
-      ctaHighlight: "New Collection",
+      // ctaHighlight: "New Collection",
       title: "Nature-Inspired Designs",
       description: "Beautiful products crafted with sustainability at their core."
     },
     {
       id: 3,
       video_url: video,
-      ctaHighlight: "Limited Time",
+      // ctaHighlight: "Limited Time",
       title: "Join the Green Revolution",
       description: "Be part of the movement towards environmental consciousness."
     },
@@ -92,7 +92,7 @@ const HeroSection = () => {
         </AnimatePresence>
 
         {/* Content Container */}
-        <div className="relative z-10 container mx-auto px-6">
+  <div className="relative z-10 container mx-auto px-6" style={{ marginBottom: "-148px" }}>
           <div className="max-w-2xl">
             {currentItem.ctaHighlight && (
               <motion.div
