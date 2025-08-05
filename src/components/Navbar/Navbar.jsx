@@ -11,6 +11,7 @@ import {
   Info,
   BookOpen,
   Camera,
+  Image as Gallery, 
   MessageSquare,
   Map,
   Users,
@@ -44,7 +45,7 @@ const Navbar = () => {
     //   path: "/project",
     //   icon: <Map className="h-4 w-4 mr-2" />,
     // },
-       { label: "Gallery", path: "/gallery", icon: <Home className="h-4 w-4 mr-2" /> },
+       { label: "Gallery", path: "/gallery", icon: <Gallery className="h-4 w-4 mr-2" /> },
     {
       label: "Contact",
       path: "/contact",

@@ -8,7 +8,7 @@ const AboutSection = () => {
   const aboutData = {
     image1_url: Banner1,
     image2_url: Banner3,
-    story: "Leela Farmhouse was founded in 2010 with a vision to create a peaceful retreat in harmony with nature. What started as a small family project has grown into a beloved destination for travelers seeking authentic rural experiences while enjoying modern comforts.\n\nOur journey has been one of passion and dedication to sustainable tourism, preserving local traditions, and providing exceptional hospitality to all our guests.",
+    story: "At konkan valley agro farms, we are the fearless trailblazers , the one who dare to dream bigger, push boundaries & turn challenges into opportunities. That's why,with the experts team of agriculturist,we are here to fulfill the dream of many families who are living in metro cities e.g. Mumbai,Pune,Nashik &  having dream of  Mango,cashew orchard or spice farm in lush green mountains of Dapoli taluka in Konkan region of Maharashtra ,who is Indias only coastal hill station & famous for its stunning,clean & white sandy beaches. At Konkan valley agro farms, we have selected locations for your dream Mango , cashew orchards or spice farm just 10 to 30 minutes from stunning beaches of Dapoli, enjoying both beach visinity & income from yours dream orchards.",
     video_url: "https://www.youtube.com/@KonkanVallyAgroFarms",
     founder_image_url: Banner2,
     founder_name: "Rajesh Sharma",

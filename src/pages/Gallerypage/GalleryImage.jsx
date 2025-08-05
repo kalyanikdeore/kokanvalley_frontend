@@ -15,6 +15,9 @@ const staticGalleryImages = [
   { id: 1, url: Banner1, category: "property" },
   { id: 2, url: Banner2, category: "rooms" },
   { id: 3, url: Banner3, category: "pool" },
+    { id: 4, url: Banner1, category: "property" },
+  { id: 5, url: Banner2, category: "rooms" },
+  { id: 6, url: Banner3, category: "pool" },
 ];
 
 const staticAmenities = [
@@ -79,9 +82,44 @@ const GalleryPage = () => {
         return <FaTree className="text-4xl text-green-600 mb-4" />;
     }
   };
+ // Animation variants
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+      delayChildren: 0.3
+    }
+  }
+};
+
+const itemVariants = {
+  hidden: { y: 20, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.5,
+      ease: "easeOut"
+    }
+  },
+  hover: {
+    scale: 1.02,
+    boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
+    transition: {
+      duration: 0.3,
+      ease: "easeInOut"
+    }
+  },
+  tap: {
+    scale: 0.98
+  }
+};
+
 
   return (
-    <div className="min-h-screen bg-yellow-50 pt-69 px-6">
+    <div className="min-h-screen  pt-69 px-6">
       <h1 className="text-4xl font-bold text-green-800 text-center mb-8">
         Konkan Valley Resort
       </h1>
@@ -104,7 +142,7 @@ const GalleryPage = () => {
       </div>
 
       {/* 2. Gallery Section */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {/* <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {getFilteredImages().map((img) => (
           <div
             key={img.id}
@@ -117,60 +155,96 @@ const GalleryPage = () => {
             </div>
           </div>
         ))}
+      </div> */}
+{/* // Your component with animations */}
+<motion.div
+  className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+  variants={containerVariants}
+  initial="hidden"
+  animate="visible"
+>
+  {getFilteredImages().map((img) => (
+    <motion.div
+      key={img.id}
+      className="relative overflow-hidden rounded-lg shadow-md hover:shadow-lg cursor-pointer"
+      onClick={() => setSelectedImage({ url: img.url })}
+      variants={itemVariants}
+      whileHover="hover"
+      whileTap="tap"
+    >
+      <motion.img 
+        src={img.url} 
+        alt="" 
+        className="w-full h-64 object-cover"
+        whileHover={{ scale: 1.05 }}
+        transition={{ duration: 0.3 }}
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+        <motion.p 
+          className="text-white font-medium"
+          initial={{ y: 10, opacity: 0 }}
+          whileHover={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.2 }}
+        >
+          View Details
+        </motion.p>
       </div>
+    </motion.div>
+  ))}
+</motion.div>
 
       {/* 3. Amenities Highlights */}
-      <section className="mt-20">
-        <h2 className="text-3xl font-bold text-green-800 text-center mb-8">
-          Resort Amenities
-        </h2>
-        <div className="grid md:grid-cols-3 gap-8">
-          {staticAmenities.map((amenity, i) => (
+   <section className="mt-20 mx-auto max-w-7xl px-4">
+    <h2 className="text-3xl font-bold text-green-800 text-center mb-8">
+        Resort Amenities
+    </h2>
+    <div className="grid md:grid-cols-3 gap-8">
+        {staticAmenities.map((amenity, i) => (
             <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.1, duration: 0.6 }}
-              className="bg-white rounded-lg shadow-md overflow-hidden"
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.1, duration: 0.6 }}
+                className="bg-white rounded-lg shadow-md overflow-hidden"
             >
-              <div className="relative h-48 overflow-hidden">
-                <img
-                  src={amenity.images[0]}
-                  alt={amenity.title}
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-4">
-                  <h3 className="text-xl text-white font-bold">
-                    {amenity.title}
-                  </h3>
-                </div>
-              </div>
-              <div className="p-6 text-center">
-                {getIcon(amenity.icon)}
-                <p className="text-gray-600 mb-4">{amenity.description}</p>
-                <div className="flex gap-2 justify-center">
-                  {amenity.images.map((img, idx) => (
-                    <button
-                      key={idx}
-                      onClick={() => {
-                        setSelectedAmenityImages(amenity.images);
-                        setSelectedImage({ url: img });
-                      }}
-                      className="w-16 h-16 rounded overflow-hidden"
-                    >
-                      <img
-                        src={img}
-                        alt=""
+                <div className="relative h-48 overflow-hidden">
+                    <img
+                        src={amenity.images[0]}
+                        alt={amenity.title}
                         className="w-full h-full object-cover"
-                      />
-                    </button>
-                  ))}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-4">
+                        <h3 className="text-xl text-white font-bold">
+                            {amenity.title}
+                        </h3>
+                    </div>
                 </div>
-              </div>
+                <div className="p-6 text-center">
+                    {getIcon(amenity.icon)}
+                    <p className="text-gray-600 mb-4">{amenity.description}</p>
+                    <div className="flex gap-2 justify-center">
+                        {amenity.images.map((img, idx) => (
+                            <button
+                                key={idx}
+                                onClick={() => {
+                                    setSelectedAmenityImages(amenity.images);
+                                    setSelectedImage({ url: img });
+                                }}
+                                className="w-16 h-16 rounded overflow-hidden"
+                            >
+                                <img
+                                    src={img}
+                                    alt=""
+                                    className="w-full h-full object-cover"
+                                />
+                            </button>
+                        ))}
+                    </div>
+                </div>
             </motion.div>
-          ))}
-        </div>
-      </section>
+        ))}
+    </div>
+</section>
 
       {/* 4. Guest Experiences */}
       <section className="mt-20 relative max-w-6xl mx-auto mb-20">
