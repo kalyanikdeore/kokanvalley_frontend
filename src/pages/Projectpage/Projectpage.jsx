@@ -11,12 +11,12 @@ function Project() {
     <main className="project-page">
       <Aboutproject />
      
-      <Map />
+      {/* <Map />
       <Gallery />
       <Video />
-       <Projectsection />
+       <Projectsection /> */}
       {/* <WhyChooseUs /> */}
-      <Projecttestimonial />
+      {/* <Projecttestimonial /> */}
     </main> 
   );
 }

@@ -37,7 +37,7 @@ const AwardSection = () => {
         year: "2023",
         description: "Recognized for our groundbreaking technology in sustainable solutions.",
         video_file: video1,
-        thumbnail: "https://via.placeholder.com/800x450?text=Innovation+Award"
+        thumbnail: `https://picsum.photos/800/450?random=${Math.floor(Math.random() * 1000)}&grayscale`
       },
       {
         id: 2,
@@ -45,7 +45,7 @@ const AwardSection = () => {
         year: "2022",
         description: "Awarded for our outstanding contributions to environmental preservation.",
         video_file: video2,
-        thumbnail: "https://via.placeholder.com/800x450?text=Environmental+Excellence"
+        thumbnail: `https://picsum.photos/800/450?random=${Math.floor(Math.random() * 1000)}&grayscale`
       }
     ],
     imageAwards: []
@@ -131,6 +131,10 @@ const AwardSection = () => {
                   src={awards.videoAwards[currentVideo].thumbnail}
                   alt={awards.videoAwards[currentVideo].title}
                   className="w-full h-auto max-h-[500px] object-cover"
+                  onError={(e) => {
+                    e.target.onerror = null;
+                    e.target.src = `https://picsum.photos/800/450?random=${Math.floor(Math.random() * 1000)}`;
+                  }}
                 />
                 <button
                   onClick={() => setIsPlaying(true)}

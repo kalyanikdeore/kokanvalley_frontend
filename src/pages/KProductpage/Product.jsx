@@ -323,7 +323,7 @@ const ProductsPage = () => {
               <span className="mx-2 text-gray-400">/</span>
               <span
                 className="hover:text-green-600 cursor-pointer transition-colors"
-                onClick={() => navigate("/project")}
+                onClick={() => navigate("/products")}
               >
                 Products
               </span>
@@ -373,7 +373,7 @@ const ProductsPage = () => {
           <button
             onClick={() => {
               setActiveFilter("All");
-              navigate("/project");
+              navigate("/products");
             }}
             className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
               activeFilter === "All"
@@ -389,7 +389,7 @@ const ProductsPage = () => {
               key={cat.id}
               onClick={() => {
                 setActiveFilter(cat.name);
-                navigate(`/project/${cat.slug}`);
+                navigate(`/products/${cat.slug}`);
               }}
               className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
                 activeFilter === cat.name
@@ -417,7 +417,7 @@ const ProductsPage = () => {
                   key={subcat.id}
                   onClick={() => {
                     setActiveFilter(subcat.name);
-                    navigate(`/project/${subcat.slug}`);
+                    navigate(`/products/${subcat.slug}`);
                   }}
                   className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
                     activeFilter === subcat.name

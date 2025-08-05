@@ -30,7 +30,7 @@ const OurProducts = () => {
       id: 1,
       title: "Kokan Mango Plantation",
       description: "Premium Alphonso mango saplings grown organically in Kokan soil",
-      price: "500",
+
       image: Banner1,
       category: mockCategories[0],
     },
@@ -38,7 +38,7 @@ const OurProducts = () => {
       id: 2,
       title: "Traditional Bamboo Hut",
       description: "Eco-friendly bamboo hut for peaceful Kokan living",
-      price: "12000",
+  
       image: Banner2,
       category: mockCategories[0],
     },
@@ -46,7 +46,7 @@ const OurProducts = () => {
       id: 3,
       title: "Kokan Security Fence",
       description: "Natural wooden fencing for farms and cottages in Kokan",
-      price: "8000",
+
       image: Banner3,
       category: mockCategories[2],
     },
@@ -54,7 +54,7 @@ const OurProducts = () => {
       id: 4,
       title: "Mud House Window Frame",
       description: "Handcrafted wooden frames suitable for mud houses",
-      price: "4500",
+
       image: Banner2,
       category: mockCategories[1],
     },
@@ -62,7 +62,7 @@ const OurProducts = () => {
       id: 5,
       title: "Sliding Ventilator Window",
       description: "Ventilation optimized windows for humid Kokan weather",
-      price: "7000",
+
       image: Banner1,
       category: mockCategories[1],
     },
@@ -70,7 +70,7 @@ const OurProducts = () => {
       id: 6,
       title: "Main Gate with Iron Grill",
       description: "Rust-resistant secure gate for Kokan farms and homes",
-      price: "15000",
+
       image: Banner3,
       category: mockCategories[2],
     }
@@ -239,9 +239,7 @@ const OurProducts = () => {
                   className="w-full h-full object-cover transition-transform hover:scale-105"
                   loading="lazy"
                 />
-                <span className="absolute top-3 right-3 bg-green-500 text-white text-xs font-bold px-2 py-1 rounded">
-                  ₹{Number(product.price).toLocaleString("en-IN")}
-                </span>
+           
               </div>
               <div className="p-5">
                 <div className="flex items-center gap-2 mb-2">

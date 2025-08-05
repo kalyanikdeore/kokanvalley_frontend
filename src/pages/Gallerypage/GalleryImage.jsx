@@ -81,7 +81,7 @@ const GalleryPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-yellow-50 py-29 px-6">
+    <div className="min-h-screen bg-yellow-50 pt-69 px-6">
       <h1 className="text-4xl font-bold text-green-800 text-center mb-8">
         Konkan Valley Resort
       </h1>
@@ -173,7 +173,7 @@ const GalleryPage = () => {
       </section>
 
       {/* 4. Guest Experiences */}
-      <section className="mt-20 relative max-w-6xl mx-auto">
+      <section className="mt-20 relative max-w-6xl mx-auto mb-20">
         <h2 className="text-3xl font-bold text-green-800 text-center mb-8">
           Guest Experiences at Konkan Valley
         </h2>

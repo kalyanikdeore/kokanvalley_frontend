@@ -242,16 +242,7 @@ export default function ProductPage() {
                   variants={imageVariants}
                   whileHover="hover"
                 />
-                <motion.button 
-                  className="absolute top-3 right-3 bg-white p-2 rounded-full shadow-lg"
-                  whileHover={{ scale: 1.2 }}
-                  whileTap={{ scale: 0.9 }}
-                  onClick={() => toggleLike(prod.name)}
-                >
-                  <FiHeart 
-                    className={`text-lg ${likedProducts.includes(prod.name) ? 'text-red-500 fill-red-500' : 'text-gray-400'}`} 
-                  />
-                </motion.button>
+               
               </div>
               
               <motion.div 
@@ -260,22 +251,14 @@ export default function ProductPage() {
               >
                 <div className="flex justify-between items-start">
                   <h3 className="font-semibold text-lg text-gray-800">{prod.name}</h3>
-                  <span className="font-bold text-green-600">{prod.price}</span>
+                  {/* <span className="font-bold text-green-600">{prod.price}</span> */}
                 </div>
                 {prod.description && (
                   <p className="text-sm text-gray-600 mt-2">
                     {prod.description}
                   </p>
                 )}
-                <motion.button 
-                  className="mt-4 flex items-center gap-2 px-4 py-2 text-sm bg-green-600 text-white rounded-lg w-full justify-center"
-                  variants={buttonHover}
-                  whileHover="hover"
-                  whileTap="tap"
-                >
-                  <FiShoppingCart className="text-white" /> 
-                  <span>Add to Cart</span>
-                </motion.button>
+          
               </motion.div>
             </motion.div>
           ))}

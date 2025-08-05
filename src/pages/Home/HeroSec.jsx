@@ -10,21 +10,24 @@ const HeroSection = () => {
       video_url: video,
       // ctaHighlight: "Eco-Friendly Solutions",
       title: "Sustainable Living Starts Here",
-      description: "Discover our green technologies for a healthier planet and a brighter future."
+      description: "Discover our green technologies for a healthier planet and a brighter future.",
+      youtubeLink: "https://www.youtube.com/@KonkanVallyAgroFarms"
     },
     {
       id: 2,
       video_url: video,
       // ctaHighlight: "New Collection",
       title: "Nature-Inspired Designs",
-      description: "Beautiful products crafted with sustainability at their core."
+      description: "Beautiful products crafted with sustainability at their core.",
+      youtubeLink: "https://www.youtube.com/@KonkanVallyAgroFarms"
     },
     {
       id: 3,
       video_url: video,
       // ctaHighlight: "Limited Time",
       title: "Join the Green Revolution",
-      description: "Be part of the movement towards environmental consciousness."
+      description: "Be part of the movement towards environmental consciousness.",
+      youtubeLink: "https://www.youtube.com/@KonkanVallyAgroFarms"
     },
   ];
 
@@ -92,7 +95,7 @@ const HeroSection = () => {
         </AnimatePresence>
 
         {/* Content Container */}
-  <div className="relative z-10 container mx-auto px-6" style={{ marginBottom: "-148px" }}>
+        <div className="relative z-10 container mx-auto px-6" style={{ marginBottom: "-148px" }}>
           <div className="max-w-2xl">
             {currentItem.ctaHighlight && (
               <motion.div
@@ -130,10 +133,15 @@ const HeroSection = () => {
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.4 }}
             >
-              <button className="bg-white text-green-700 hover:bg-green-100 px-6 py-3 rounded-full font-medium flex items-center transition-all">
+              <a 
+                href={currentItem.youtubeLink} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="bg-white text-green-700 hover:bg-green-100 px-6 py-3 rounded-full font-medium flex items-center transition-all"
+              >
                 <Play className="w-5 h-5 mr-2" />
                 Watch Video
-              </button>
+              </a>
               <button className="bg-green-700 text-white hover:bg-green-800 px-6 py-3 rounded-full font-medium flex items-center transition-all">
                 <Info className="w-5 h-5 mr-2" />
                 Learn More

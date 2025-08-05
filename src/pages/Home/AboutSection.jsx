@@ -9,7 +9,7 @@ const AboutSection = () => {
     image1_url: Banner1,
     image2_url: Banner3,
     story: "Leela Farmhouse was founded in 2010 with a vision to create a peaceful retreat in harmony with nature. What started as a small family project has grown into a beloved destination for travelers seeking authentic rural experiences while enjoying modern comforts.\n\nOur journey has been one of passion and dedication to sustainable tourism, preserving local traditions, and providing exceptional hospitality to all our guests.",
-    video_url: "https://youtube.com/our-story",
+    video_url: "https://www.youtube.com/@KonkanVallyAgroFarms",
     founder_image_url: Banner2,
     founder_name: "Rajesh Sharma",
     founder_position: "Founder & CEO",
