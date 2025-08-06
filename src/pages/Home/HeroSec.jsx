@@ -96,7 +96,7 @@ const HeroSection = () => {
 
         {/* Content Container */}
         <div className="relative z-10 container mx-auto px-6" style={{ marginBottom: "-148px" }}>
-          <div className="max-w-2xl">
+          <div className="max-w-2xl" style={{ marginLeft: '60px' }}>
             {currentItem.ctaHighlight && (
               <motion.div
                 className="inline-flex items-center bg-green-700 text-white px-4 py-2 rounded-full mb-4 text-sm font-medium"

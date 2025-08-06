@@ -10,9 +10,9 @@ function Home() {
     <div>
         {/* <Aboutproduct/> */}
  <Product />
-      <ProductWhyChoose/>
+      {/* <ProductWhyChoose/>
       <ProductTestimonial />
-      <Productfaq/>
+      <Productfaq/> */}
     </div>
   );
 }

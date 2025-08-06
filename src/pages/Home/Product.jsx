@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { FiHeart, FiShoppingCart } from "react-icons/fi";
 import { motion } from "framer-motion";
-import { Banner1, Banner2, Banner3 } from "../../assets";
+import { kokan4, kokan5, kokan6, kokan7, kokan8, kokan9, kokan10, kokan11, kokan12, kokan13, kokan14, kokan15, kokan16, kokan17, kokan2 } from "../../assets";
 
 // Category buttons
 const categories = [
@@ -16,31 +16,53 @@ const categories = [
 const products = [
   {
     name: "Aminoz",
-    image: Banner1,
+    image: kokan4,
     category: "Plant Protectants",
     description: "Lush green landscapes of Kokan Valley",
     price: "$19.99"
   },
   {
     name: "Aminozz",
-    image: Banner2,
+    image: kokan5,
     category: "Nutrient Solutions",
     description: "Lush green landscapes of Kokan Valley",
     price: "$24.99"
   },
   {
     name: "BananaKing",
-    image: Banner3,
+    image: kokan6,
     category: "Nutrient Solutions",
     description: "Lush green landscapes of Kokan Valley",
     price: "$29.99"
   },
   {
     name: "Kokan Valley Greens",
-    image: Banner1,
+    image: kokan7,
     category: "Special Products",
     description: "Lush green landscapes of Kokan Valley",
     price: "$34.99"
+  },
+  {
+    name: "Kokan Valley Greens",
+    image: kokan2,
+    category: "Special Products",
+    description: "Lush green landscapes of Kokan Valley",
+    price: "$34.99"
+  },
+  {
+    name: "konkan valley ",
+    image: kokan8,
+    category: "Organic Fertilizers",
+    description: "Lush green landscapes of Kokan Valley",
+    price: "$39.99"
+  },
+  
+  {
+    name: "konkan valley",
+    image: kokan17,
+    category: "Plant Protectants",
+    description: "Lush green landscapes of Kokan Valley",
+    price: "$84.99"
   },
 ];
 

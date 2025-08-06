@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { Banner1, Banner2, Banner3 } from "../../assets";
+import { kokan6, kokan9, kokan14 } from "../../assets";
 
 // Define animation variants (add these at the top of your file)
 const containerVariants = {
@@ -34,21 +34,21 @@ const OutdoorGallery = () => {
   const outdoorImages = [
     {
       id: 1,
-      src: Banner1,
+      src: kokan6,
       alt: "Beautiful garden view",
-      category: "Outdoor"
+      category: "kokan valley"
     },
     {
       id: 2,
-      src: Banner2,
+      src: kokan9,
       alt: "Scenic outdoor patio",
-      category: "Outdoor"
+     category: "kokan valley"
     },
     {
       id: 3,
-      src: Banner3,
+      src: kokan14,
       alt: "Sunset by the pool",
-      category: "Outdoor"
+  category: "kokan valley"
     }
   ];
 

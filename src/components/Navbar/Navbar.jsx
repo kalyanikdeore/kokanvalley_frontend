@@ -40,11 +40,11 @@ const Navbar = () => {
       path: "/product",
       icon: <BookOpen className="h-4 w-4 mr-2" />,
     },
-    // {
-    //   label: "Project",
-    //   path: "/project",
-    //   icon: <Map className="h-4 w-4 mr-2" />,
-    // },
+    {
+      label: "Project",
+      path: "/project",
+      icon: <Map className="h-4 w-4 mr-2" />,
+    },
        { label: "Gallery", path: "/gallery", icon: <Gallery className="h-4 w-4 mr-2" /> },
     {
       label: "Contact",
