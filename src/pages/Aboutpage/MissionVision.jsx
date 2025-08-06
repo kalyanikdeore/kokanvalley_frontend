@@ -59,7 +59,7 @@ const VisionMission = () => {
               className="text-3xl md:text-4xl  font-bold text-gray-800 mb-4"
               variants={itemVariants}
             >
-              Our Vision <span className="text-green-600">Our Mission</span>
+              Our Vision <span className="text-green-600">& Mission</span>
             </motion.h2>
             <motion.div 
               className="w-24 h-1.5 bg-green-500 mx-auto rounded-full"
@@ -92,9 +92,7 @@ const VisionMission = () => {
                 <h3 className="ml-4 text-2xl font-bold text-gray-900">Our Vision</h3>
               </div>
               <p className="text-lg text-gray-600 leading-relaxed">
-                To create a world where technology empowers every individual and organization to achieve their fullest potential. 
-                We envision a future where innovative solutions bridge gaps, foster connections, and drive sustainable progress 
-                for communities worldwide.
+             To reconnect people with nature through farming and develop a sustainable agro-processing ecosystem in the Konkan region.
               </p>
             </div>
           </motion.div>
@@ -121,9 +119,7 @@ const VisionMission = () => {
                 <h3 className="ml-4 text-2xl font-bold text-gray-900">Our Mission</h3>
               </div>
               <p className="text-lg text-gray-600 leading-relaxed">
-                To deliver exceptional value through innovative products and services that solve real-world problems. 
-                We are committed to excellence, integrity, and continuous improvement while fostering a culture of 
-                collaboration, creativity, and customer-centric approach in everything we do.
+              Provide accessible farming opportunities in Konkan for urban dwellers and farmer Integrate modern technology with natural farming practices Set up fruit-based food processing units on-site Promote rural economy through responsible agro-tourism.
               </p>
             </div>
           </motion.div>

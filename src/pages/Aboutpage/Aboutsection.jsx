@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { kokan9, kokan4 ,kokan14, kokan18  } from "../../assets";
 
 const Aboutsection = () => {
   // Animation variants
@@ -51,7 +52,7 @@ const Aboutsection = () => {
             className="text-3xl md:text-4xl font-bold text-gray-800 mb-4"
             variants={itemVariants}
           >
-            Discover <span className="text-green-600">Kokan Valley</span>
+            Konkan Valley Agro <span className="text-green-600">Farm</span>
           </motion.h2>
           <motion.div 
             className="w-24 h-1.5 bg-green-500 mx-auto rounded-full"
@@ -66,24 +67,19 @@ const Aboutsection = () => {
             viewport={{ once: true }}
             variants={containerVariants}
           >
-            <motion.h3 
-              className="text-2xl md:text-3xl font-semibold mb-6 text-gray-800"
+            <motion.h5 
+              className="text-lg md:text-3xl font-semibold mb-6 text-gray-800"
               variants={itemVariants}
             >
-              The Coastal Paradise of Maharashtra
-            </motion.h3>
+              Is Your Dream Agro-Lifestyle Nestled In the Lap of Nature!
+            </motion.h5>
             <motion.p 
               className="text-gray-600 mb-6 leading-relaxed"
               variants={itemVariants}
             >
-              Nestled between the majestic Western Ghats and the Arabian Sea, Kokan Valley is a breathtaking region known for its pristine beaches, lush green hills, and vibrant culture. Spanning across Maharashtra's coastal belt, this tropical paradise offers a perfect blend of natural beauty and rich heritage.
+              Konkan Valley Agro Farm is a unique, nature-driven project designed especially for nature lovers, urban investors, and agro-entrepreneurs. Our goal is to offer an opportunity to escape the chaos of city life and experience peaceful, profitable farming in the heart of Konkan.
             </motion.p>
-            <motion.p 
-              className="text-gray-600 mb-8 leading-relaxed"
-              variants={itemVariants}
-            >
-              With its swaying coconut palms, picturesque fishing villages, and delectable seafood cuisine, Kokan Valley provides an authentic coastal experience away from the hustle of city life.
-            </motion.p>
+       
             <motion.div 
               className="grid grid-cols-2 gap-4"
               variants={containerVariants}
@@ -136,7 +132,7 @@ const Aboutsection = () => {
               whileHover={{ scale: 1.02 }}
             >
               <img 
-                src="https://images.unsplash.com/photo-1591123120675-6f7f1aae0e5b?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" 
+                src={kokan9} 
                 alt="Kokan Beach" 
                 className="absolute inset-0 w-full h-full object-cover"
               />
@@ -149,7 +145,7 @@ const Aboutsection = () => {
               whileHover={{ scale: 1.02 }}
             >
               <img 
-                src="https://images.unsplash.com/photo-1587474260584-136574528ed5?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" 
+                src={kokan14} 
                 alt="Kokan Hills" 
                 className="absolute inset-0 w-full h-full object-cover"
               />
@@ -162,7 +158,7 @@ const Aboutsection = () => {
               whileHover={{ scale: 1.02 }}
             >
               <img 
-                src="https://images.unsplash.com/photo-1566438480900-0609be27a4be?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" 
+                src={kokan4} 
                 alt="Kokan Food" 
                 className="absolute inset-0 w-full h-full object-cover"
               />
@@ -175,7 +171,7 @@ const Aboutsection = () => {
               whileHover={{ scale: 1.02 }}
             >
               <img 
-                src="https://images.unsplash.com/photo-1580852300517-7a8b42483b95?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" 
+                src={kokan18} 
                 alt="Kokan Village" 
                 className="absolute inset-0 w-full h-full object-cover"
               />

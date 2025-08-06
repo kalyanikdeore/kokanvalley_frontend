@@ -44,7 +44,7 @@ const products = [
   },
   {
     name: "Kokan Valley Greens",
-    image: kokan2,
+    image: kokan7,
     category: "Special Products",
     description: "Lush green landscapes of Kokan Valley",
     price: "$34.99"
@@ -59,7 +59,7 @@ const products = [
   
   {
     name: "konkan valley",
-    image: kokan17,
+    image: kokan9,
     category: "Plant Protectants",
     description: "Lush green landscapes of Kokan Valley",
     price: "$84.99"
