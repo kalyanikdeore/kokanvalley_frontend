@@ -358,17 +358,17 @@ const ContactPage = () => {
               </p>
             </motion.div>
 
-            <motion.div variants={fadeInUp} className="h-96 w-full">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3721.715061381521!2d75.8243143153774!3d21.04172265800083!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd9c3a1e9e8e5d9%3A0x3e5a6f196c7a7a2a!2sJalgaon%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin"
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen=""
-                loading="lazy"
-                title="Kokan Valley Location"
-              ></iframe>
-            </motion.div>
+          <motion.div variants={fadeInUp} className="h-96 w-full">
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1ddummycoordinates!2d73.687249!3d18.891563!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTjCsDUzJzI5LjYiTiA3M8KwNDEnMTQuMSJF!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin"
+    width="100%"
+    height="100%"
+    style={{ border: 0 }}
+    allowFullScreen=""
+    loading="lazy"
+    title="Kokan Valley Location"
+  ></iframe>
+</motion.div>
           </motion.section>
         </motion.div>
       </div>

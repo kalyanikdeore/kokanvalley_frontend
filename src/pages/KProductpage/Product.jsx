@@ -1,50 +1,133 @@
 import React, { useState } from "react";
 import { FiHeart, FiShoppingCart } from "react-icons/fi";
 import { motion } from "framer-motion";
-import { Banner1, Banner2, Banner3 } from "../../assets";
+import { kokan1, kokan2, kokan3, kokan4, kokan5, kokan6, kokan7, kokan8, kokan9, kokan10, kokan11, kokan12, kokan13 } from "../../assets";
 
-// Category buttons
+// Category buttons with corresponding descriptions
 const categories = [
-  "All",
-  "Plant Protectants",
-  "Nutrient Solutions",
-  "Organic Fertilizers",
-  "Special Products",
+  {
+    name: "All",
+    title: "Our Complete Product Range",
+    subtitle: "Explore our full collection of premium agricultural solutions for all your farming needs"
+  },
+  {
+    name: "Plant Protectants",
+    title: "Plant Protection Solutions",
+    subtitle: "High-quality products to safeguard your crops from pests and diseases"
+  },
+  {
+    name: "Nutrient Solutions",
+    title: "Advanced Nutrient Formulas",
+    subtitle: "Specialized nutrition to maximize plant growth and yield potential"
+  },
+  {
+    name: "Organic Fertilizers",
+    title: "Natural Fertilizer Options",
+    subtitle: "Eco-friendly solutions to nourish your plants and soil"
+  },
+  {
+    name: "Special Products",
+    title: "Specialty Agricultural Products",
+    subtitle: "Unique formulations for specific crop requirements"
+  },
 ];
 
 // Product data with category for filtering
 const products = [
   {
     name: "Aminoz",
-    image: Banner1,
+    image: kokan1,
     category: "Plant Protectants",
-    description: "Lush green landscapes of Kokan Valley",
-    price: "$19.99"
-  },
-  {
-    name: "Aminozz",
-    image: Banner2,
-    category: "Nutrient Solutions",
-    description: "Lush green landscapes of Kokan Valley",
+    description: "Advanced plant growth regulator with amino acids",
     price: "$24.99"
   },
   {
-    name: "BananaKing",
-    image: Banner3,
+    name: "Aminozz",
+    image: kokan2,
     category: "Nutrient Solutions",
-    description: "Lush green landscapes of Kokan Valley",
+    description: "Complete nutrient solution for hydroponic systems",
     price: "$29.99"
   },
   {
-    name: "Kokan Valley Greens",
-    image: Banner1,
-    category: "Special Products",
-    description: "Lush green landscapes of Kokan Valley",
+    name: "BananaKing",
+    image: kokan3,
+    category: "Nutrient Solutions",
+    description: "Specialized fertilizer for banana plantations",
     price: "$34.99"
   },
+  {
+    name: "Kokan Valley Greens",
+    image: kokan4,
+    category: "Special Products",
+    description: "Organic soil conditioner for valley crops",
+    price: "$19.99"
+  },
+  {
+    name: "Organic Bloom Booster",
+    image: kokan5,
+    category: "Organic Fertilizers",
+    description: "Natural flowering stimulant for all plants",
+    price: "$22.99"
+  },
+  {
+    name: "Eco Pest Shield",
+    image: kokan6,
+    category: "Plant Protectants",
+    description: "Non-toxic pest repellent made from neem extracts",
+    price: "$27.50"
+  },
+  {
+    name: "Bio Root Enhancer",
+    image: kokan7,
+    category: "Organic Fertilizers",
+    description: "Microbial formula for stronger root development",
+    price: "$18.99"
+  },
+  {
+    name: "Fruit & Veggie Magic",
+    image: kokan8,
+    category: "Nutrient Solutions",
+    description: "Balanced nutrition for fruits and vegetables",
+    price: "$31.99"
+  },
+  {
+    name: "Herbal Growth Tonic",
+    image: kokan9,
+    category: "Organic Fertilizers",
+    description: "Plant-based growth promoter for all crops",
+    price: "$25.50"
+  },
+  {
+    name: "Natural Fungicide",
+    image: kokan10,
+    category: "Plant Protectants",
+    description: "Organic solution for fungal diseases",
+    price: "$21.99"
+  },
+  {
+    name: "Compost Tea Concentrate",
+    image: kokan11,
+    category: "Organic Fertilizers",
+    description: "Liquid compost extract for soil health",
+    price: "$23.75"
+  },
+  {
+    name: "Seaweed Extract",
+    image: kokan12,
+    category: "Nutrient Solutions",
+    description: "Mineral-rich marine plant supplement",
+    price: "$28.50"
+  },
+  {
+    name: "Mycorrhizal Inoculant",
+    image: kokan13,
+    category: "Special Products",
+    description: "Beneficial fungi for plant symbiosis",
+    price: "$32.99"
+  }
 ];
 
-// Animation variants
+// Animation variants (remain the same as in your original code)
 const titleVariants = {
   hidden: { opacity: 0, y: 20 },
   visible: { 
@@ -138,7 +221,7 @@ const buttonHover = {
 };
 
 export default function ProductPage() {
-  const [activeCategory, setActiveCategory] = useState("All");
+  const [activeCategory, setActiveCategory] = useState(categories[0]);
   const [likedProducts, setLikedProducts] = useState([]);
 
   const toggleLike = (productName) => {
@@ -149,16 +232,20 @@ export default function ProductPage() {
     }
   };
 
+  const handleCategoryChange = (category) => {
+    setActiveCategory(categories.find(cat => cat.name === category));
+  };
+
   const filteredProducts =
-    activeCategory === "All"
+    activeCategory.name === "All"
       ? products
-      : products.filter((p) => p.category === activeCategory);
+      : products.filter((p) => p.category === activeCategory.name);
 
   return (
-    <div className="px-6 py-10 max-w-screen-2xl mx-auto">
+    <div className="px-6 p-65 max-w-screen-2xl mx-auto">
       {/* Title Section */}
       <motion.div 
-        className="text-center mb-16"
+        className="text-center mb-15"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
@@ -169,7 +256,7 @@ export default function ProductPage() {
         }}
       >
         <motion.h2 
-          className="text-3xl md:text-4xl p-55 font-bold text-gray-800 mb-4"
+          className="text-3xl md:text-4xl font-bold text-gray-800 mb-4"
           variants={titleVariants}
         >
           Our <span className="text-green-600">Products</span>
@@ -179,6 +266,20 @@ export default function ProductPage() {
           variants={underlineVariants}
         />
       </motion.div>
+      
+      <motion.h2 
+        className="text-2xl text-center font-bold text-gray-800 mb-4"
+        variants={titleVariants}
+      >
+        {activeCategory.title}
+      </motion.h2>
+      
+      <motion.p 
+        className="text-lg text-center text-gray-800 mb-9"
+        variants={titleVariants}
+      >
+        {activeCategory.subtitle}
+      </motion.p>
 
       {/* Category Buttons */}
       <motion.div 
@@ -195,10 +296,10 @@ export default function ProductPage() {
         <div className="flex flex-wrap gap-3 justify-center">
           {categories.map((cat, i) => (
             <motion.button
-              key={cat}
-              onClick={() => setActiveCategory(cat)}
+              key={cat.name}
+              onClick={() => handleCategoryChange(cat.name)}
               className={`px-4 py-1 rounded-full text-sm ${
-                activeCategory === cat
+                activeCategory.name === cat.name
                   ? "bg-green-600 text-white"
                   : "bg-gray-100 text-gray-700"
               }`}
@@ -207,7 +308,7 @@ export default function ProductPage() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              {cat}
+              {cat.name}
             </motion.button>
           ))}
         </div>
@@ -216,7 +317,7 @@ export default function ProductPage() {
       {/* Products Grid */}
       {filteredProducts.length > 0 ? (
         <motion.div 
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto "
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
@@ -242,7 +343,12 @@ export default function ProductPage() {
                   variants={imageVariants}
                   whileHover="hover"
                 />
-               
+                {/* <button 
+                  onClick={() => toggleLike(prod.name)}
+                  className={`absolute top-3 right-3 p-2 rounded-full ${likedProducts.includes(prod.name) ? 'text-red-500' : 'text-white'} bg-black bg-opacity-30 hover:bg-opacity-50 transition`}
+                >
+                  <FiHeart className="w-5 h-5" />
+                </button> */}
               </div>
               
               <motion.div 
@@ -258,7 +364,7 @@ export default function ProductPage() {
                     {prod.description}
                   </p>
                 )}
-          
+             
               </motion.div>
             </motion.div>
           ))}

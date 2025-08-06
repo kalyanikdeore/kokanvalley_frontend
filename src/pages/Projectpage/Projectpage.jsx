@@ -11,11 +11,11 @@ function Project() {
     <main className="project-page">
       <Aboutproject />
      
-      <Map />
+      {/* <Map />
       <Gallery />
-      <Video />
-       <Projectsection /> 
-      <WhyChooseUs />
+      <Video /> */}
+       {/* <Projectsection />  */}
+      {/* <WhyChooseUs /> */}
       {/* {/* <Projecttestimonial /> */}
     </main> 
   );
