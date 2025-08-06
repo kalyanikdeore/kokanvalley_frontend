@@ -10,7 +10,7 @@ function Aboutpage() {
     <div>
       <Aboutsection />
       <MissionVision />
-      <TeamSection/>
+      {/* <TeamSection/> */}
       <WhyChoose />
 
     </div>

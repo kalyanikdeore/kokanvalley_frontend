@@ -21,92 +21,92 @@ const ProductsPage = () => {
   const categories = [
     {
       id: 1,
-      name: "Doors",
-      slug: "doors",
-      description: "Premium quality doors for Indian homes and offices",
-      icon: "🚪",
+      name: "Kokan-Nature",
+      slug: "Kokannature",
+      description: "Premium quality organic fruits from the Western Ghats",
+      icon: "🌿",
       subcategories: [
         {
           id: 101,
-          name: "Main Doors",
-          slug: "main-doors",
-          description: "Premium main entrance doors"
+          name: "Tropical Fruits",
+          slug: "tropical-fruits",
+          description: "Exotic fruits grown in the Konkan region"
         },
         {
           id: 102,
-          name: "Room Doors",
-          slug: "room-doors",
-          description: "High-quality interior doors"
+          name: "Seasonal Specials",
+          slug: "seasonal-specials",
+          description: "Limited availability fruits for each season"
         },
         {
           id: 103,
-          name: "Bathroom Doors",
-          slug: "bathroom-doors",
-          description: "Moisture-resistant bathroom doors"
+          name: "Organic Varieties",
+          slug: "organic-varieties",
+          description: "Certified organic fruits with no pesticides"
         }
       ],
       benefits: [
-        { title: "Durable", description: "Long-lasting materials" },
-        { title: "Secure", description: "Advanced locking systems" },
-        { title: "Customizable", description: "Various designs available" }
+        { title: "Fresh", description: "Harvested at peak ripeness" },
+        { title: "Nutritious", description: "Packed with vitamins and minerals" },
+        { title: "Sustainable", description: "Eco-friendly farming practices" }
       ]
     },
     {
       id: 2,
-      name: "Outdoor Doors",
-      slug: "outdoor-doors",
-      description: "Weather-resistant doors for outdoor spaces",
-      icon: "🏡",
+      name: "Kokan Fruits",
+      slug: "kokan-fruits",
+      description: "Juicy and flavorful fruits from coastal orchards",
+      icon: "🍊",
       subcategories: [
         {
           id: 201,
-          name: "Patio Doors",
-          slug: "patio-doors",
-          description: "Beautiful doors for patio areas"
+          name: "Citrus Fruits",
+          slug: "citrus-fruits",
+          description: "Vitamin C rich oranges, lemons and more"
         },
         {
           id: 202,
-          name: "Garage Doors",
-          slug: "garage-doors",
-          description: "Durable garage doors"
+          name: "Berries",
+          slug: "berries",
+          description: "Antioxidant-packed berries"
         },
         {
           id: 203,
-          name: "Garden Doors",
-          slug: "garden-doors",
-          description: "Elegant garden entrance doors"
+          name: "Stone Fruits",
+          slug: "stone-fruits",
+          description: "Juicy peaches, plums and apricots"
         }
       ],
       benefits: [
-        { title: "Weatherproof", description: "Withstands all seasons" },
-        { title: "Energy Efficient", description: "Excellent insulation" },
-        { title: "Low Maintenance", description: "Easy to clean" }
+        { title: "Flavorful", description: "Intense natural flavors" },
+        { title: "Hydrating", description: "High water content" },
+        { title: "Versatile", description: "Great for eating fresh or cooking" }
       ]
     },
     {
       id: 3,
-      name: "Specialty Doors",
-      slug: "specialty-doors",
-      description: "Unique door solutions for special needs",
+      name: "Orchard Paradise",
+      slug: "Orchard-Paradise",
+      description: "Rare and exotic fruits from our specialty orchards",
       icon: "✨",
       subcategories: [
         {
           id: 301,
-          name: "Fire Rated Doors",
-          slug: "fire-rated-doors",
-          description: "Safety doors with fire resistance"
+          name: "Exotic Varieties",
+          slug: "exotic-varieties",
+          description: "Unique fruits from around the world"
         },
         {
           id: 302,
-          name: "Soundproof Doors",
-          slug: "soundproof-doors",
-          description: "Doors with noise reduction"
+          name: "Heritage Fruits",
+          slug: "heritage-fruits",
+          description: "Traditional varieties with exceptional taste"
         }
       ],
       benefits: [
-        { title: "Special Features", description: "Tailored to specific needs" },
-        { title: "High Security", description: "Enhanced protection" },
-        { title: "Premium Materials", description: "Top quality construction" }
+        { title: "Unique", description: "Hard-to-find varieties" },
+        { title: "Premium Quality", description: "Hand-selected fruits" },
+        { title: "Specialty Grown", description: "Cultivated with expert care" }
       ]
     }
   ];
@@ -114,73 +114,73 @@ const ProductsPage = () => {
   const products = [
     {
       id: 1,  
-      title: "Classic Wooden Main Door",
-      description: "Handcrafted wooden door with traditional carvings",
-      price: "35000",
-      image: "https://images.unsplash.com/photo-1600585152220-90363fe7e115?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&h=300&q=80",
+      title: "Alphonso Mangoes",
+      description: "The king of mangoes with rich, creamy texture and sweet flavor",
+      price: "3500",
+      image: "https://images.unsplash.com/photo-1601493700631-2b16ec4b4716?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&h=300&q=80",
       category_id: 1,
       subcategory_id: 101
     },
     {
       id: 2,
-      title: "Modern Flush Room Door",
-      description: "Sleek minimalist design for contemporary interiors",
-      price: "12000",
-      image: "https://images.unsplash.com/photo-1600566752355-35792bedcfea?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&h=300&q=80",
+      title: "Konkan Cashews",
+      description: "Premium quality cashews grown in the coastal region",
+      price: "1200",
+      image: "https://images.unsplash.com/photo-1605388286112-6088a6e1caf5?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&h=300&q=80",
       category_id: 1,
       subcategory_id: 102
     },
     {
       id: 3,
-      title: "Frosted Glass Bathroom Door",
-      description: "Privacy glass door with moisture-resistant frame",
-      price: "18000",
-      image: "https://images.unsplash.com/photo-1600121848594-d8644e57abab?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&h=300&q=80",
+      title: "Organic Kokum",
+      description: "Tart and tangy fruit used in traditional Konkan cuisine",
+      price: "800",
+      image: "https://images.unsplash.com/photo-1601493700631-2b16ec4b4716?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&h=300&q=80",
       category_id: 1,
       subcategory_id: 103
     },
     {
       id: 4,
-      title: "Sliding Patio Door",
-      description: "Space-saving sliding door for outdoor access",
-      price: "42000",
-      image: "https://images.unsplash.com/photo-1600210492493-0946911123ea?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&h=300&q=80",
+      title: "Ratnagiri Oranges",
+      description: "Juicy and sweet oranges with perfect balance of acidity",
+      price: "900",
+      image: "https://images.unsplash.com/photo-1557800636-894a64c1696f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&h=300&q=80",
       category_id: 2,
       subcategory_id: 201
     },
     {
       id: 5,
-      title: "Automatic Garage Door",
-      description: "Convenient remote-controlled garage door",
-      price: "65000",
-      image: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&h=300&q=80",
+      title: "Coastal Strawberries",
+      description: "Small but intensely flavorful berries",
+      price: "650",
+      image: "https://images.unsplash.com/photo-1464965911861-746a04b4bca6?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&h=300&q=80",
       category_id: 2,
       subcategory_id: 202
     },
     {
       id: 6,
-      title: "French Garden Door",
-      description: "Elegant glass-paned door for garden entrance",
-      price: "38000",
-      image: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&h=300&q=80",
+      title: "Konkan Peaches",
+      description: "Fragrant and juicy peaches with velvety skin",
+      price: "1100",
+      image: "https://images.unsplash.com/photo-1601493700631-2b16ec4b4716?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&h=300&q=80",
       category_id: 2,
       subcategory_id: 203
     },
     {
       id: 7,
-      title: "Fireproof Safety Door",
-      description: "Certified fire-resistant door for commercial use",
-      price: "55000",
-      image: "https://images.unsplash.com/photo-1600585152220-90363fe7e115?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&h=300&q=80",
+      title: "Dragon Fruit",
+      description: "Exotic pink fruit with mild sweet flavor and striking appearance",
+      price: "2500",
+      image: "https://images.unsplash.com/photo-1550258987-190a2d41a8ba?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&h=300&q=80",
       category_id: 3,
       subcategory_id: 301
     },
     {
       id: 8,
-      title: "Acoustic Soundproof Door",
-      description: "Specialized door for noise reduction",
-      price: "48000",
-      image: "https://images.unsplash.com/photo-1600566752355-35792bedcfea?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&h=300&q=80",
+      title: "Heritage Mango Varieties",
+      description: "Rare traditional mango varieties with unique flavors",
+      price: "4800",
+      image: "https://images.unsplash.com/photo-1601493700631-2b16ec4b4716?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&h=300&q=80",
       category_id: 3,
       subcategory_id: 302
     }
@@ -191,14 +191,14 @@ const ProductsPage = () => {
       id: 1,
       name: "Rahul Sharma",
       location: "Mumbai",
-      quote: "The doors have transformed our home. Excellent quality and service!",
+      quote: "The Alphonso mangoes were the best I've ever tasted. Will order again!",
       rating: 5
     },
     {
       id: 2,
       name: "Priya Patel",
       location: "Delhi",
-      quote: "Professional installation and beautiful doors. Very happy with the result.",
+      quote: "Fresh delivery and excellent packaging. The fruits arrived in perfect condition.",
       rating: 4
     }
   ];
@@ -206,13 +206,13 @@ const ProductsPage = () => {
   const faqs = [
     {
       id: 1,
-      question: "What is the warranty period for your doors?",
-      answer: "We offer a 10-year warranty on our premium doors and a 5-year warranty on standard models."
+      question: "How are your fruits packaged for shipping?",
+      answer: "We use special eco-friendly packaging with cushioning to protect fruits during transit and maintain freshness."
     },
     {
       id: 2,
-      question: "Can I get custom designs?",
-      answer: "Yes, we specialize in custom door designs to match your specific requirements."
+      question: "Do you offer seasonal subscriptions?",
+      answer: "Yes, we have seasonal fruit boxes that deliver the freshest in-season fruits regularly."
     }
   ];
 
@@ -256,15 +256,15 @@ const ProductsPage = () => {
 
   // Get current category or subcategory name
   const getCurrentCategoryName = () => {
-    if (!category) return "All Door Products";
+    if (!category) return "All Our Fruits";
     if (slugToCategoryMap[category]) return slugToCategoryMap[category];
     if (slugToSubcategoryMap[category]) return slugToSubcategoryMap[category];
-    return "All Door Products";
+    return "All Our Fruits";
   };
 
   // Get current category description
   const getCurrentCategoryDescription = () => {
-    if (!category) return "Browse our complete collection of premium doors";
+    if (!category) return "Browse our complete collection of premium fruits from the Konkan region";
     
     // Check main categories
     const mainCategory = categories.find(cat => cat.slug === category);
@@ -277,7 +277,7 @@ const ProductsPage = () => {
     
     if (subcategory) return subcategory.description;
     
-    return "Browse our complete collection of premium doors";
+    return "Browse our complete collection of premium fruits from the Konkan region";
   };
 
   // Get benefits for current category
@@ -323,7 +323,7 @@ const ProductsPage = () => {
               <span className="mx-2 text-gray-400">/</span>
               <span
                 className="hover:text-green-600 cursor-pointer transition-colors"
-                onClick={() => navigate("/products")}
+                onClick={() => navigate("/product")}
               >
                 Products
               </span>
@@ -373,7 +373,7 @@ const ProductsPage = () => {
           <button
             onClick={() => {
               setActiveFilter("All");
-              navigate("/products");
+              navigate("/project");
             }}
             className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
               activeFilter === "All"
@@ -389,7 +389,7 @@ const ProductsPage = () => {
               key={cat.id}
               onClick={() => {
                 setActiveFilter(cat.name);
-                navigate(`/products/${cat.slug}`);
+                navigate(`/project/${cat.slug}`);
               }}
               className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
                 activeFilter === cat.name
@@ -417,7 +417,7 @@ const ProductsPage = () => {
                   key={subcat.id}
                   onClick={() => {
                     setActiveFilter(subcat.name);
-                    navigate(`/products/${subcat.slug}`);
+                    navigate(`/project/${subcat.slug}`);
                   }}
                   className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
                     activeFilter === subcat.name
@@ -508,7 +508,7 @@ const ProductsPage = () => {
                     <h3 className="text-xl font-bold text-gray-800 mb-2">{product.title}</h3>
                     <p className="text-gray-600 mb-4">{product.description}</p>
                     <button className="w-full bg-green-500 hover:bg-green-600 text-white font-medium py-2 px-4 rounded-lg transition">
-                      Enquire Now
+                      Order Now
                     </button>
                   </div>
                 </motion.div>
@@ -517,9 +517,68 @@ const ProductsPage = () => {
           </motion.div>
         </div>
 
+        {/* Testimonials Section */}
+        <div className="my-16">
+          <h2 className="text-2xl font-bold text-gray-900 mb-8">What Our Customers Say</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {testimonials.map((testimonial) => (
+              <div key={testimonial.id} className="bg-white p-6 rounded-xl shadow-sm">
+                <div className="flex items-center mb-4">
+                  {[...Array(5)].map((_, i) => (
+                    <FiStar
+                      key={i}
+                      className={`${i < testimonial.rating ? 'text-yellow-400' : 'text-gray-300'} mr-1`}
+                      fill={i < testimonial.rating ? 'currentColor' : 'none'}
+                    />
+                  ))}
+                </div>
+                <p className="text-gray-700 italic mb-4">"{testimonial.quote}"</p>
+                <div className="flex items-center">
+                  <div className="bg-green-100 text-green-600 rounded-full w-10 h-10 flex items-center justify-center mr-3">
+                    {testimonial.name.charAt(0)}
+                  </div>
+                  <div>
+                    <h4 className="font-medium text-gray-900">{testimonial.name}</h4>
+                    <p className="text-sm text-gray-500">{testimonial.location}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
 
-    
-   
+        {/* FAQ Section */}
+        <div className="my-16">
+          <h2 className="text-2xl font-bold text-gray-900 mb-8">Frequently Asked Questions</h2>
+          <div className="bg-white rounded-xl shadow-sm overflow-hidden">
+            {faqs.map((faq, index) => (
+              <div key={faq.id} className="border-b border-gray-100 last:border-0">
+                <button
+                  className="w-full flex justify-between items-center p-6 text-left"
+                  onClick={() => toggleFAQ(index)}
+                >
+                  <h3 className="font-medium text-gray-900">{faq.question}</h3>
+                  {activeFAQ === index ? (
+                    <FiChevronUp className="text-green-500" />
+                  ) : (
+                    <FiChevronDown className="text-gray-400" />
+                  )}
+                </button>
+                {activeFAQ === index && (
+                  <motion.div
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: 'auto' }}
+                    exit={{ opacity: 0, height: 0 }}
+                    className="px-6 pb-6 text-gray-600"
+                  >
+                    {faq.answer}
+                  </motion.div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+
       </main>
     </div>
   );

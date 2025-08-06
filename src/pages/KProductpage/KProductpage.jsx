@@ -9,7 +9,7 @@ function Home() {
   return (
     <div>
         {/* <Aboutproduct/> */}
- {/* <Product /> */}
+ <Product />
       <ProductWhyChoose/>
       <ProductTestimonial />
       <Productfaq/>

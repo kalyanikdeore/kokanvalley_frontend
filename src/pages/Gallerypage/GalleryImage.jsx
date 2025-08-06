@@ -9,15 +9,13 @@ import {
   FaHiking,
 } from "react-icons/fa";
 
-import { Banner1, Banner2, Banner3 } from "../../assets";
+import {kokan1 ,kokan2, kokan3,kokan4 ,kokan5 ,kokan6, kokan7 , kokan8, kokan9, kokan10, kokan11, kokan12, kokan13, kokan14, kokan15, kokan16, kokan17, kokan18 } from "../../assets";
 
 const staticGalleryImages = [
-  { id: 1, url: Banner1, category: "property" },
-  { id: 2, url: Banner2, category: "rooms" },
-  { id: 3, url: Banner3, category: "pool" },
-    { id: 4, url: Banner1, category: "property" },
-  { id: 5, url: Banner2, category: "rooms" },
-  { id: 6, url: Banner3, category: "pool" },
+  { id: 1, url: kokan1, kokan2, kokan3, kokan4,kokan5, category: "property" },
+  { id: 2, url: kokan5, kokan8,kokan6, kokan7,kokan9, kokan10,kokan11, kokan12, category: "rooms" },
+  { id: 3, url: kokan13, kokan15, kokan14,kokan13, kokan11,kokan12, kokan17,kokan16, kokan18, category: "pool" },
+
 ];
 
 const staticAmenities = [
@@ -25,26 +23,26 @@ const staticAmenities = [
     title: "Konkan Valley Pool",
     description: "Relax in our infinity pool with stunning valley views.",
     icon: "pool",
-    images: [Banner1, Banner3],
+    images: [kokan1,kokan2, kokan3],
   },
   {
     title: "Valley View Rooms",
     description: "Wake up to breathtaking views of the Konkan valley.",
     icon: "bed",
-    images: [Banner2],
+    images: [kokan5, kokan8],
   },
   {
     title: "Konkan Cuisine",
     description: "Savor authentic Malvani and Konkani delicacies.",
     icon: "utensils",
-    images: [Banner1, Banner2],
+    images: [kokan13, kokan15, kokan14],
   },
 ];
 
 const staticGuestExperiences = [
-  { url: Banner1 },
-  { url: Banner3 },
-  { url: Banner2 },
+  { url: kokan9 },
+  { url: kokan2 },
+  { url: kokan3 },
 ];
 
 const GalleryPage = () => {
@@ -56,11 +54,10 @@ const GalleryPage = () => {
 
   const categories = [
     { id: "all", name: "All", icon: <FiImage /> },
-    { id: "property", name: "Resort", icon: <FaTree /> },
-    { id: "rooms", name: "Rooms", icon: <FaBed /> },
-    { id: "pool", name: "Pool", icon: <FaSwimmingPool /> },
-    { id: "dining", name: "Dining", icon: <FaUtensils /> },
-    { id: "activities", name: "Activities", icon: <FaHiking /> },
+    { id: "property", name: "Kokan Nature ", icon: <FaTree /> },
+    { id: "rooms", name: "Kokan Fruits ", icon: <FaBed /> },
+    { id: "pool", name: "Orchard Paradise", icon: <FaSwimmingPool /> },
+
   ];
 
   const getFilteredImages = () => {
