@@ -11,7 +11,7 @@ const AboutSection = () => {
     story: "At konkan valley agro farms, we are the fearless trailblazers , the one who dare to dream bigger, push boundaries & turn challenges into opportunities. That's why,with the experts team of agriculturist,we are here to fulfill the dream of many families who are living in metro cities e.g. Mumbai,Pune,Nashik &  having dream of  Mango,cashew orchard or spice farm in lush green mountains of Dapoli taluka in Konkan region of Maharashtra ,who is Indias only coastal hill station & famous for its stunning,clean & white sandy beaches. ",
     video_url: "https://www.youtube.com/@KonkanVallyAgroFarms",
     founder_image_url: kokan3,
-    founder_name: "Rajesh Sharma",
+    founder_name: "~Shivaji Sonone",
     founder_position: "Founder & CEO",
     overlap_image_alt: "Leela Farmhouse garden view"
   };
