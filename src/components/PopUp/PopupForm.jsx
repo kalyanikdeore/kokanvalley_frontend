@@ -9,14 +9,18 @@ function PopupForm({ setIsOpen, isOpen }) {
     phone: "",
   });
 
-  // Show popup after 5 seconds
+  // Check localStorage and show popup after 5 seconds if not previously closed
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsOpen(true);
-    }, 5000);
+    const popupShown = localStorage.getItem('popupShown');
+    
+    if (!popupShown) {
+      const timer = setTimeout(() => {
+        setIsOpen(true);
+      }, 5000);
 
-    return () => clearTimeout(timer);
-  }, []);
+      return () => clearTimeout(timer);
+    }
+  }, [setIsOpen]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -26,6 +30,11 @@ function PopupForm({ setIsOpen, isOpen }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Form submitted:", formData);
+    closePopup();
+  };
+
+  const closePopup = () => {
+    localStorage.setItem('popupShown', 'true');
     setIsOpen(false);
   };
 
@@ -44,7 +53,7 @@ function PopupForm({ setIsOpen, isOpen }) {
             animate={{ opacity: 0.8 }}
             exit={{ opacity: 0 }}
             className="fixed inset-0 bg-black/30"
-            onClick={() => setIsOpen(false)}
+            onClick={closePopup}
           />
 
           {/* Form container with white background */}
@@ -60,7 +69,7 @@ function PopupForm({ setIsOpen, isOpen }) {
             className="relative w-full max-w-md mx-2 bg-white rounded-xl shadow-2xl overflow-hidden"
           >
             <button
-              onClick={() => setIsOpen(false)}
+              onClick={closePopup}
               className="absolute top-4 right-4 p-1.5 rounded-full hover:bg-gray-100 transition-all z-10 group"
               aria-label="Close form"
             >

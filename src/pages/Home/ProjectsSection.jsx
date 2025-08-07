@@ -107,7 +107,7 @@ const KokanNatureGallery = () => {
               className="text-3xl md:text-4xl font-bold text-gray-800 mb-4"
               variants={itemVariants}
             >
-              Discover <span className="text-green-600">Kokan's Nature</span>
+              Our  <span className="text-green-600">Project</span>
             </motion.h2>
             <motion.div 
               className="w-24 h-1.5 bg-green-500 mx-auto rounded-full"

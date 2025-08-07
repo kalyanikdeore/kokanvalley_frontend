@@ -24,8 +24,9 @@ function Home() {
       <HeroSection />
       {/* <CountSection /> */}
       <AboutSection />
+        <ProjectsSection />
       <Product />
-      <ProjectsSection />
+    
       <TestimonialsSection />
       {/* Popup Form */}
       <PopupForm isOpen={showPopup} setIsOpen={setShowPopup} />
